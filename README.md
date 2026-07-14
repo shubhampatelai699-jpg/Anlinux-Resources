@@ -156,7 +156,7 @@ GET  /exports/{id}
 
 ## Dubkami — Execution Schedule
 
-Active sprint: **Week 3 — MVP Sprint 1**
+Active sprint: **Week 4 — MVP Sprint 2**
 
 | Week | Milestone | Deliverables |
 | --- | --- | --- |
@@ -181,15 +181,20 @@ Active sprint: **Week 3 — MVP Sprint 1**
 - [x] Data-flow + failure/retry model final *(Tech Lead)*
 - [x] API contract v1 freeze *(Backend Lead)*
 
-**Week 3 — MVP Sprint 1: In Progress**
-- [ ] Upload + resumable transfer *(Platform Engineer)*
-- [ ] Project/job creation + status tracking *(Backend Engineer)*
-- [ ] Storage integration baseline *(Platform Engineer)*
+**Week 3 — MVP Sprint 1: Complete**
+- [x] Upload + resumable transfer *(Platform Engineer)*
+- [x] Project/job creation + status tracking *(Backend Engineer)*
+- [x] Storage integration baseline *(Platform Engineer)*
 
-**Week 4 — MVP Sprint 2: Upcoming**
+**Week 4 — MVP Sprint 2: In Progress**
 - [ ] ASR + speaker diarization baseline *(ML Lead)*
 - [ ] Source/target language flow *(NLP Engineer)*
 - [ ] Basic translation pipeline *(NLP Engineer)*
+
+**Week 5 — MVP Sprint 3: Upcoming**
+- [ ] TTS dubbing per speaker *(Speech Engineer)*
+- [ ] Export pipeline (audio/video) *(Media Pipeline Engineer)*
+- [ ] First end-to-end integration *(Eng Team)*
 
 ---
 
@@ -229,10 +234,10 @@ Active sprint: **Week 3 — MVP Sprint 1**
 | 1 | QA | QA Lead | P0 | ✅ Done | Device/browser matrix sign-off |
 | 2 | Platform | Tech Lead | P0 | ✅ Done | Components/data-flow/failure-retry artifacts |
 | 2 | API | Backend Lead | P0 | ✅ Done | API contract v1 freeze |
-| 3 | Platform | Platform Engineer | P0 | 🔄 In Progress | Upload + resumable transfer + storage baseline |
-| 3 | Workflow | Backend Engineer | P0 | 🔄 In Progress | Project/job creation and tracking |
-| 4 | AI/ML | ML Lead | P0 | ⏳ To Do | ASR + diarization baseline |
-| 4 | AI/ML | NLP Engineer | P0 | ⏳ To Do | Source/target language flow + translation baseline |
+| 3 | Platform | Platform Engineer | P0 | ✅ Done | Upload + resumable transfer + storage baseline |
+| 3 | Workflow | Backend Engineer | P0 | ✅ Done | Project/job creation and tracking |
+| 4 | AI/ML | ML Lead | P0 | 🔄 In Progress | ASR + diarization baseline |
+| 4 | AI/ML | NLP Engineer | P0 | 🔄 In Progress | Source/target language flow + translation baseline |
 | 5 | AI/ML | Speech Engineer | P0 | ⏳ To Do | TTS dubbing per speaker |
 | 5 | Platform | Media Pipeline Engineer | P0 | ⏳ To Do | Export pipeline + end-to-end integration |
 | 6 | Engineering | Eng Team | P0 | ⏳ To Do | Bug fixes + quality tuning |
