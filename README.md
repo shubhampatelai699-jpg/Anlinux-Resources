@@ -1,8 +1,83 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/25335515-d83c-4181-8c32-87dd2d676dbd" alt="Dubkami — Indian One Anime" width="320"/>
+</p>
+
+<h1 align="center">🦁 DUBKAMI — INDIA'S #1 AI DUBBING PLATFORM 🦁</h1>
+
+<p align="center">
+  <strong>INDIAN ONE ANIME · Powered by AI · Built on GitHub · Made in India 🇮🇳</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active%20Development-brightgreen?style=for-the-badge&logo=github&logoColor=white"/>
+  <img src="https://img.shields.io/badge/AI-Powered-0052CC?style=for-the-badge&logo=openai&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Made%20in-India%20%F0%9F%87%AE%F0%9F%87%B3-FF9933?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Version-1.0.0--MVP-7B2FBE?style=for-the-badge"/>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/GitHub%20Copilot-Enabled-000000?style=flat-square&logo=github&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Languages-50%2B%20Supported-22C55E?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Upload-Up%20to%205GB-F97316?style=flat-square"/>
+  <img src="https://img.shields.io/badge/License-Proprietary-DC2626?style=flat-square"/>
+</p>
+
+---
+
+> **Dubkami** एक revolutionary AI dubbing platform है जो Indian anime और global video content को  
+> हर भाषा में accessible बनाता है। Full AI automation, enterprise-grade infrastructure, और  
+> 50+ languages के support के साथ — Dubkami India का #1 dubbing solution है।
+
+---
+
+## 🎯 About Dubkami
+
+**Dubkami (डुबकामी)** is India's most ambitious AI-powered dubbing and localization platform.  
+Built for content creators, anime studios, and media companies — Dubkami automates the entire  
+dubbing pipeline from upload to final export using state-of-the-art AI.
+
+### 🏆 Why Dubkami is #1
+
+| Feature | Dubkami | Others |
+| --- | --- | --- |
+| 🤖 Full AI Pipeline (ASR → TTS → Export) | ✅ End-to-end | ❌ Partial |
+| 🎙️ Per-speaker Voice Cloning | ✅ Yes | ❌ Rare |
+| 🗣️ 50+ Language Support | ✅ Yes | ⚠️ Limited |
+| 🎬 Lip-sync Alignment | ✅ Phase-2 | ❌ Missing |
+| 📁 5GB File Upload (Resumable) | ✅ Yes | ❌ No |
+| 🔒 Enterprise Security | ✅ Full | ⚠️ Basic |
+| 🇮🇳 Indian Language Priority | ✅ First-class | ❌ Afterthought |
+| 🤖 GitHub Copilot AI Development | ✅ Fully enabled | ❌ N/A |
+
+### 🌟 Core Capabilities
+- **🎧 ASR** — Automatic speech recognition (Whisper / OpenAI)
+- **🧑‍🤝‍🧑 Diarization** — Multi-speaker detection and timeline
+- **🌐 Translation** — Neural machine translation (DeepL / NLLB-200)
+- **🔊 TTS** — AI voice synthesis per speaker (XTTS-v2 / ElevenLabs)
+- **🎭 Voice Cloning** — Speaker-matched voice generation
+- **👄 Lip-sync** — Wav2Lip / SadTalker alignment (Phase-2)
+- **📦 Export** — Audio/video + optional subtitles/transcripts
+
+---
+
+## 🚀 Platform & Tech Stack
+
+| Layer | Technology |
+| --- | --- |
+| Frontend | Web-first (Desktop + Mobile), Drag & Drop |
+| Backend | REST API, Async Jobs, Queue-based |
+| Storage | Object Storage + CDN + Resumable Upload |
+| AI/ML | Whisper, PyAnnote, NLLB-200, XTTS-v2, Wav2Lip |
+| CI/CD | GitHub Actions (lint → test → build → deploy) |
+| Security | Encryption at rest/in transit, RBAC, Audit logs |
+| Orchestration | Async workers, retries, checkpoint recovery |
+
+---
+
 This is the place where all the images and scripts are stored. If you are looking for the main application, please visit [here](https://github.com/EXALAB/AnLinux-App)
 
 To open an issue, please visit [here](https://github.com/EXALAB/AnLinux-App/issues)
-
-
 
 ## Bootstraping System
 
@@ -23,84 +98,10 @@ To bootstrap a system, simply run:
 For example: 
 
 > ./bootstrap.sh armhf /home/user/ubuntu/armhf
- 
+
+---
+
 ## Dubkami Master Blueprint (Approved)
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/25335515-d83c-4181-8c32-87dd2d676dbd" alt="Dubkami Icon" width="280"/>
-</p>
-
-<p align="center">
-  <strong>🦁 DUBKAMI — INDIAN ONE ANIME 🦁</strong><br/>
-  <em>India's #1 AI-Powered Dubbing Platform</em>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Active%20Development-brightgreen?style=for-the-badge&logo=github"/>
-  <img src="https://img.shields.io/badge/AI-Powered-blue?style=for-the-badge&logo=openai"/>
-  <img src="https://img.shields.io/badge/Made%20in-India%20🇮🇳-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Version-1.0.0--MVP-purple?style=for-the-badge"/>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/GitHub%20Copilot-Enabled-black?style=flat-square&logo=github"/>
-  <img src="https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=flat-square&logo=github-actions"/>
-  <img src="https://img.shields.io/badge/Languages-50%2B%20Supported-success?style=flat-square"/>
-  <img src="https://img.shields.io/badge/Upload-Up%20to%205GB-orange?style=flat-square"/>
-</p>
-
----
-
-### 🎯 Vision: India's #1 AI Dubbing Platform
-
-> **Dubkami** is built to be the **#1 AI dubbing platform** for Indian and global content creators.  
-> Powered by cutting-edge AI, GitHub automation, and full cloud infrastructure — Dubkami enables  
-> anyone to dub, localize, and deliver premium audio/video content at scale.
-
-**Core Mission:**
-- 🇮🇳 Make Indian anime and video content accessible in every language
-- 🤖 Full AI automation: ASR → Translation → TTS → Lip-sync → Export
-- ⚡ Real-time + async processing for content of any length
-- 🔒 Enterprise-grade security and reliability
-- 🌍 50+ language support from day one
-
----
-
-### 🤖 AI & GitHub Full Support (Upgraded)
-
-#### GitHub AI Integration
-- **GitHub Copilot** — AI-assisted development for all Dubkami modules
-- **GitHub Actions CI/CD** — Automated testing, build, and deployment pipeline
-- **GitHub Copilot Agents** — Autonomous task execution and code generation
-- **GitHub Advanced Security** — Secret scanning, code scanning, dependency review
-- **GitHub Projects** — Full project board tracking linked to code
-- **GitHub Releases** — Versioned releases with changelogs per sprint
-- **GitHub Discussions** — Community feedback and roadmap voting
-
-#### AI Capabilities (v2.0 Full Upgrade)
-| Capability | Technology | Status |
-| --- | --- | --- |
-| Speech Recognition (ASR) | Whisper / OpenAI ASR | ⏳ Sprint 4 |
-| Speaker Diarization | PyAnnote / NeMo | ⏳ Sprint 4 |
-| Neural Machine Translation | DeepL / NLLB-200 | ⏳ Sprint 4 |
-| Text-to-Speech (TTS) | XTTS-v2 / Coqui / ElevenLabs | ⏳ Sprint 5 |
-| Voice Cloning | XTTS / custom model | ⏳ Sprint 5 |
-| Lip-sync Alignment | Wav2Lip / SadTalker | Phase-2 |
-| Emotion/Tone Matching | Prosody model | Phase-2 |
-| Noise Cleanup | DeepFilter / RNNoise | Phase-2 |
-| Auto Quality Scoring | Custom scoring pipeline | Phase-3 |
-| Multi-language Batch | Parallel job orchestration | Phase-3 |
-
-#### Full GitHub Actions Workflow (Planned)
-```
-Push → Lint → Unit Tests → Build → Integration Tests → Security Scan → Deploy
-```
-- **Environments:** dev → staging → production
-- **Auto-deploy** on merge to `main`
-- **Rollback** on failure
-- **Slack/Discord notifications** on build status
-
----
 
 यह सेक्शन AI dubbing app "डुबकामी" के लिए approved end-to-end blueprint को lock करता है।
 
@@ -325,6 +326,9 @@ Push → Lint → Unit Tests → Build → Integration Tests → Security Scan �
 ---
 
 <p align="center">
+  <img src="https://github.com/user-attachments/assets/25335515-d83c-4181-8c32-87dd2d676dbd" alt="Dubkami Seal" width="120"/>
+  <br/><br/>
   <strong>🦁 DUBKAMI — INDIA'S #1 AI DUBBING PLATFORM 🦁</strong><br/>
-  <em>Powered by AI · Built on GitHub · Made in India 🇮🇳</em>
+  <em>INDIAN ONE ANIME · Powered by AI · Built on GitHub · Made in India 🇮🇳</em><br/><br/>
+  <img src="https://img.shields.io/badge/%F0%9F%87%AE%F0%9F%87%B3%20India's%20%231-AI%20Dubbing%20Platform-FF9933?style=for-the-badge"/>
 </p>
