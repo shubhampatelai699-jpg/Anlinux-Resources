@@ -26,6 +26,10 @@ For example:
  
 ## Dubkami Master Blueprint (Approved)
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/25335515-d83c-4181-8c32-87dd2d676dbd" alt="Dubkami Icon" width="220"/>
+</p>
+
 यह सेक्शन AI dubbing app "डुबकामी" के लिए approved end-to-end blueprint को lock करता है।
 
 ### Phase 1: Final Master Requirements (Locked)
