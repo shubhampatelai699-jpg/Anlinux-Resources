@@ -82,13 +82,13 @@ For example:
 - Tracking model: To Do -> In Progress -> Blocked -> Done.
 - Definition of Done (DoD) per task: owner set, dependency resolved, acceptance checks passed, artifact linked.
 
-### 2) Phase-1 Requirements Lock: Issue Checklist
-- [ ] Scope freeze approved (audio/video dubbing, file size limits, language support, multi-speaker support).
-- [ ] Functional requirements approved (ASR, translation, TTS, lip-sync, emotion matching, noise management).
-- [ ] Non-functional requirements approved (reliability, security, observability, throughput targets).
-- [ ] Input/output contract approved (upload methods, exports, subtitle/transcript options).
-- [ ] Device/browser support matrix approved.
-- [ ] Final acceptance criteria signed off by Product, Engineering, and QA.
+### 2) Phase-1 Requirements Lock: Issue Checklist ✅ ALL APPROVED
+- [x] Scope freeze approved (audio/video dubbing, file size limits, language support, multi-speaker support).
+- [x] Functional requirements approved (ASR, translation, TTS, lip-sync, emotion matching, noise management).
+- [x] Non-functional requirements approved (reliability, security, observability, throughput targets).
+- [x] Input/output contract approved (upload methods, exports, subtitle/transcript options).
+- [x] Device/browser support matrix approved.
+- [x] Final acceptance criteria signed off by Product, Engineering, and QA.
 
 ### 3) Phase-2 Architecture Artifacts
 #### Components
@@ -202,16 +202,22 @@ For example:
 
 ## Dubkami Current Sprint Focus
 
-> 🚀 **Active: Week 1 — Phase-1 Lock**
+> 🚀 **Active: Week 2 — Architecture Artifacts**
 
-### ✅ In Progress
-- [ ] Scope + functional + non-functional requirements sign-off *(Product Lead)*
-- [ ] Device/browser support matrix sign-off *(QA Lead)*
-- [ ] Final acceptance criteria freeze *(Product + Engineering + QA)*
+### ✅ Week 1 — Phase-1 Lock: COMPLETE
+- [x] Scope + functional + non-functional requirements sign-off *(Product Lead)*
+- [x] Device/browser support matrix sign-off *(QA Lead)*
+- [x] Final acceptance criteria freeze *(Product + Engineering + QA)*
 
-### 🔜 Next Up (Week 2 — Architecture Artifacts)
-- Components diagram + data-flow + failure/retry model
-- API contract v1 freeze
+### 🔄 In Progress (Week 2 — Architecture Artifacts)
+- [ ] Components diagram final *(Tech Lead)*
+- [ ] Data-flow + failure/retry model final *(Tech Lead)*
+- [ ] API contract v1 freeze *(Backend Lead)*
+
+### 🔜 Next Up (Week 3 — MVP Sprint-1)
+- Upload + resumable transfer
+- Project/job creation + status tracking
+- Storage integration baseline
 
 ---
 
@@ -219,10 +225,10 @@ For example:
 
 | Week | Track | Owner | Priority | Status | Deliverables |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Product | Product Lead | P0 | 🔄 In Progress | Scope and acceptance criteria lock |
-| 1 | QA | QA Lead | P0 | 🔄 In Progress | Device/browser matrix sign-off |
-| 2 | Platform | Tech Lead | P0 | ⏳ To Do | Components/data-flow/failure-retry artifacts |
-| 2 | API | Backend Lead | P0 | ⏳ To Do | API contract v1 freeze |
+| 1 | Product | Product Lead | P0 | ✅ Done | Scope and acceptance criteria lock |
+| 1 | QA | QA Lead | P0 | ✅ Done | Device/browser matrix sign-off |
+| 2 | Platform | Tech Lead | P0 | 🔄 In Progress | Components/data-flow/failure-retry artifacts |
+| 2 | API | Backend Lead | P0 | 🔄 In Progress | API contract v1 freeze |
 | 3 | Platform | Platform Engineer | P0 | ⏳ To Do | Upload + resumable transfer + storage baseline |
 | 3 | Workflow | Backend Engineer | P0 | ⏳ To Do | Project/job creation and tracking |
 | 4 | AI/ML | ML Lead | P0 | ⏳ To Do | ASR + diarization baseline |
@@ -237,4 +243,4 @@ For example:
 | 8 | Release | Release Manager | P0 | ⏳ To Do | Pilot launch and feedback triage |
 | 8 | Product | Product + Leadership | P0 | ⏳ To Do | Beta go/no-go decision |
 
-**Status Legend:** 🔄 In Progress &nbsp;|&nbsp; ⏳ To Do &nbsp;|&nbsp; 🚫 Blocked &nbsp;|&nbsp; ✅ Done
+**Status Legend:** ✅ Done &nbsp;|&nbsp; 🔄 In Progress &nbsp;|&nbsp; ⏳ To Do &nbsp;|&nbsp; 🚫 Blocked
