@@ -27,8 +27,80 @@ For example:
 ## Dubkami Master Blueprint (Approved)
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/25335515-d83c-4181-8c32-87dd2d676dbd" alt="Dubkami Icon" width="220"/>
+  <img src="https://github.com/user-attachments/assets/25335515-d83c-4181-8c32-87dd2d676dbd" alt="Dubkami Icon" width="280"/>
 </p>
+
+<p align="center">
+  <strong>🦁 DUBKAMI — INDIAN ONE ANIME 🦁</strong><br/>
+  <em>India's #1 AI-Powered Dubbing Platform</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active%20Development-brightgreen?style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/badge/AI-Powered-blue?style=for-the-badge&logo=openai"/>
+  <img src="https://img.shields.io/badge/Made%20in-India%20🇮🇳-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Version-1.0.0--MVP-purple?style=for-the-badge"/>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/GitHub%20Copilot-Enabled-black?style=flat-square&logo=github"/>
+  <img src="https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=flat-square&logo=github-actions"/>
+  <img src="https://img.shields.io/badge/Languages-50%2B%20Supported-success?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Upload-Up%20to%205GB-orange?style=flat-square"/>
+</p>
+
+---
+
+### 🎯 Vision: India's #1 AI Dubbing Platform
+
+> **Dubkami** is built to be the **#1 AI dubbing platform** for Indian and global content creators.  
+> Powered by cutting-edge AI, GitHub automation, and full cloud infrastructure — Dubkami enables  
+> anyone to dub, localize, and deliver premium audio/video content at scale.
+
+**Core Mission:**
+- 🇮🇳 Make Indian anime and video content accessible in every language
+- 🤖 Full AI automation: ASR → Translation → TTS → Lip-sync → Export
+- ⚡ Real-time + async processing for content of any length
+- 🔒 Enterprise-grade security and reliability
+- 🌍 50+ language support from day one
+
+---
+
+### 🤖 AI & GitHub Full Support (Upgraded)
+
+#### GitHub AI Integration
+- **GitHub Copilot** — AI-assisted development for all Dubkami modules
+- **GitHub Actions CI/CD** — Automated testing, build, and deployment pipeline
+- **GitHub Copilot Agents** — Autonomous task execution and code generation
+- **GitHub Advanced Security** — Secret scanning, code scanning, dependency review
+- **GitHub Projects** — Full project board tracking linked to code
+- **GitHub Releases** — Versioned releases with changelogs per sprint
+- **GitHub Discussions** — Community feedback and roadmap voting
+
+#### AI Capabilities (v2.0 Full Upgrade)
+| Capability | Technology | Status |
+| --- | --- | --- |
+| Speech Recognition (ASR) | Whisper / OpenAI ASR | ⏳ Sprint 4 |
+| Speaker Diarization | PyAnnote / NeMo | ⏳ Sprint 4 |
+| Neural Machine Translation | DeepL / NLLB-200 | ⏳ Sprint 4 |
+| Text-to-Speech (TTS) | XTTS-v2 / Coqui / ElevenLabs | ⏳ Sprint 5 |
+| Voice Cloning | XTTS / custom model | ⏳ Sprint 5 |
+| Lip-sync Alignment | Wav2Lip / SadTalker | Phase-2 |
+| Emotion/Tone Matching | Prosody model | Phase-2 |
+| Noise Cleanup | DeepFilter / RNNoise | Phase-2 |
+| Auto Quality Scoring | Custom scoring pipeline | Phase-3 |
+| Multi-language Batch | Parallel job orchestration | Phase-3 |
+
+#### Full GitHub Actions Workflow (Planned)
+```
+Push → Lint → Unit Tests → Build → Integration Tests → Security Scan → Deploy
+```
+- **Environments:** dev → staging → production
+- **Auto-deploy** on merge to `main`
+- **Rollback** on failure
+- **Slack/Discord notifications** on build status
+
+---
 
 यह सेक्शन AI dubbing app "डुबकामी" के लिए approved end-to-end blueprint को lock करता है।
 
@@ -202,22 +274,27 @@ For example:
 
 ## Dubkami Current Sprint Focus
 
-> 🚀 **Active: Week 2 — Architecture Artifacts**
+> 🚀 **Active: Week 3 — MVP Sprint-1**
 
 ### ✅ Week 1 — Phase-1 Lock: COMPLETE
 - [x] Scope + functional + non-functional requirements sign-off *(Product Lead)*
 - [x] Device/browser support matrix sign-off *(QA Lead)*
 - [x] Final acceptance criteria freeze *(Product + Engineering + QA)*
 
-### 🔄 In Progress (Week 2 — Architecture Artifacts)
-- [ ] Components diagram final *(Tech Lead)*
-- [ ] Data-flow + failure/retry model final *(Tech Lead)*
-- [ ] API contract v1 freeze *(Backend Lead)*
+### ✅ Week 2 — Architecture Artifacts: COMPLETE
+- [x] Components diagram final *(Tech Lead)*
+- [x] Data-flow + failure/retry model final *(Tech Lead)*
+- [x] API contract v1 freeze *(Backend Lead)*
 
-### 🔜 Next Up (Week 3 — MVP Sprint-1)
-- Upload + resumable transfer
-- Project/job creation + status tracking
-- Storage integration baseline
+### 🔄 In Progress (Week 3 — MVP Sprint-1)
+- [ ] Upload + resumable transfer *(Platform Engineer)*
+- [ ] Project/job creation + status tracking *(Backend Engineer)*
+- [ ] Storage integration baseline *(Platform Engineer)*
+
+### 🔜 Next Up (Week 4 — MVP Sprint-2)
+- ASR + speaker diarization baseline
+- Source/target language flow
+- Basic translation pipeline
 
 ---
 
@@ -227,10 +304,10 @@ For example:
 | --- | --- | --- | --- | --- | --- |
 | 1 | Product | Product Lead | P0 | ✅ Done | Scope and acceptance criteria lock |
 | 1 | QA | QA Lead | P0 | ✅ Done | Device/browser matrix sign-off |
-| 2 | Platform | Tech Lead | P0 | 🔄 In Progress | Components/data-flow/failure-retry artifacts |
-| 2 | API | Backend Lead | P0 | 🔄 In Progress | API contract v1 freeze |
-| 3 | Platform | Platform Engineer | P0 | ⏳ To Do | Upload + resumable transfer + storage baseline |
-| 3 | Workflow | Backend Engineer | P0 | ⏳ To Do | Project/job creation and tracking |
+| 2 | Platform | Tech Lead | P0 | ✅ Done | Components/data-flow/failure-retry artifacts |
+| 2 | API | Backend Lead | P0 | ✅ Done | API contract v1 freeze |
+| 3 | Platform | Platform Engineer | P0 | 🔄 In Progress | Upload + resumable transfer + storage baseline |
+| 3 | Workflow | Backend Engineer | P0 | 🔄 In Progress | Project/job creation and tracking |
 | 4 | AI/ML | ML Lead | P0 | ⏳ To Do | ASR + diarization baseline |
 | 4 | AI/ML | NLP Engineer | P0 | ⏳ To Do | Source/target language flow + translation baseline |
 | 5 | AI/ML | Speech Engineer | P0 | ⏳ To Do | TTS dubbing per speaker |
@@ -244,3 +321,10 @@ For example:
 | 8 | Product | Product + Leadership | P0 | ⏳ To Do | Beta go/no-go decision |
 
 **Status Legend:** ✅ Done &nbsp;|&nbsp; 🔄 In Progress &nbsp;|&nbsp; ⏳ To Do &nbsp;|&nbsp; 🚫 Blocked
+
+---
+
+<p align="center">
+  <strong>🦁 DUBKAMI — INDIA'S #1 AI DUBBING PLATFORM 🦁</strong><br/>
+  <em>Powered by AI · Built on GitHub · Made in India 🇮🇳</em>
+</p>
