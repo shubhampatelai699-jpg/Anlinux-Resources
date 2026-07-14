@@ -153,3 +153,67 @@ For example:
 - [ ] Pilot exit criteria met.
 - [ ] Beta exit criteria met.
 - [ ] Production go/no-go sign-off recorded.
+
+## Dubkami Week-by-Week Execution Schedule
+
+### Week 1 (Phase-1 Lock)
+- Scope + functional + non-functional requirements sign-off.
+- Device/browser matrix final.
+- Acceptance criteria freeze.
+
+### Week 2 (Architecture Artifacts)
+- Components diagram final.
+- Data-flow + failure/retry model final.
+- API contract v1 freeze.
+
+### Week 3 (MVP Sprint-1)
+- Upload + resumable transfer.
+- Project/job creation + status tracking.
+- Storage integration baseline.
+
+### Week 4 (MVP Sprint-2)
+- ASR + speaker diarization baseline.
+- Source/target language flow.
+- Basic translation pipeline.
+
+### Week 5 (MVP Sprint-3)
+- TTS dubbing per speaker.
+- Export pipeline (audio/video).
+- First end-to-end integration.
+
+### Week 6 (MVP Hardening)
+- Bug fixing + quality tuning.
+- Multi-speaker consistency improvements.
+- MVP release candidate cut.
+
+### Week 7 (Gates Validation)
+- QA gates run.
+- Security gates run.
+- Scalability smoke/load checks.
+
+### Week 8 (Pilot Rollout)
+- Pilot launch.
+- Feedback triage + fixes.
+- Beta go/no-go decision.
+
+## Dubkami Task Owners + Priority + Status Board (Initial)
+
+| Week | Track | Owner | Priority | Status | Deliverables |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Product | Product Lead | P0 | To Do | Scope and acceptance criteria lock |
+| 1 | QA | QA Lead | P0 | To Do | Device/browser matrix sign-off |
+| 2 | Platform | Tech Lead | P0 | To Do | Components/data-flow/failure-retry artifacts |
+| 2 | API | Backend Lead | P0 | To Do | API contract v1 freeze |
+| 3 | Platform | Platform Engineer | P0 | To Do | Upload + resumable transfer + storage baseline |
+| 3 | Workflow | Backend Engineer | P0 | To Do | Project/job creation and tracking |
+| 4 | AI/ML | ML Lead | P0 | To Do | ASR + diarization baseline |
+| 4 | AI/ML | NLP Engineer | P0 | To Do | Source/target language flow + translation baseline |
+| 5 | AI/ML | Speech Engineer | P0 | To Do | TTS dubbing per speaker |
+| 5 | Platform | Media Pipeline Engineer | P0 | To Do | Export pipeline + end-to-end integration |
+| 6 | Engineering | Eng Team | P0 | To Do | Bug fixes + quality tuning |
+| 6 | AI/ML | ML Team | P1 | To Do | Multi-speaker consistency improvements |
+| 7 | QA | QA Team | P0 | To Do | QA gates execution |
+| 7 | Security | Security Lead | P0 | To Do | Security gates execution |
+| 7 | Platform | SRE/Platform Team | P1 | To Do | Scalability smoke/load checks |
+| 8 | Release | Release Manager | P0 | To Do | Pilot launch and feedback triage |
+| 8 | Product | Product + Leadership | P0 | To Do | Beta go/no-go decision |
