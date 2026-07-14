@@ -70,3 +70,86 @@ For example:
   - autoscaled workers (CPU/GPU), queue backpressure handling, resilient retry logic.
 - Rollout:
   - pilot -> limited beta -> staged public release by language and region.
+
+## Dubkami Execution Tasks (Autopilot)
+
+### 1) Phase-wise Execution Breakdown
+- Workstreams: Product, Platform, AI/ML, Studio UX, QA, Security, Release.
+- Tracking model: To Do -> In Progress -> Blocked -> Done.
+- Definition of Done (DoD) per task: owner set, dependency resolved, acceptance checks passed, artifact linked.
+
+### 2) Phase-1 Requirements Lock: Issue Checklist
+- [ ] Scope freeze approved (audio/video dubbing, file size limits, language support, multi-speaker support).
+- [ ] Functional requirements approved (ASR, translation, TTS, lip-sync, emotion matching, noise management).
+- [ ] Non-functional requirements approved (reliability, security, observability, throughput targets).
+- [ ] Input/output contract approved (upload methods, exports, subtitle/transcript options).
+- [ ] Device/browser support matrix approved.
+- [ ] Final acceptance criteria signed off by Product, Engineering, and QA.
+
+### 3) Phase-2 Architecture Artifacts
+#### Components
+- Ingestion Service
+- Media Preprocessing Service
+- ASR + Speaker Diarization Service
+- Translation Service
+- Voice Synthesis/TTS Service
+- Lip-sync & Alignment Service
+- Render/Mastering Service
+- Delivery Service (Storage/CDN)
+- Orchestration & Job Queue Service
+
+#### Data-flow
+- Upload init -> chunk transfer -> upload finalize -> job enqueue.
+- Pipeline stages execute asynchronously with checkpoints and retries.
+- Intermediate artifacts stored stage-wise; final outputs published via delivery service.
+- Failures routed to retry policy; non-recoverable jobs move to manual-review state.
+
+#### APIs (Minimum)
+- POST /projects
+- POST /jobs
+- POST /uploads/init
+- POST /uploads/{id}/complete
+- GET /jobs/{id}
+- POST /jobs/{id}/speaker-mapping
+- POST /jobs/{id}/rerender
+- GET /exports/{id}
+
+### 4) Phase-3 Backlog Assignment (MVP / Phase-2 / Phase-3)
+#### MVP
+- Upload + resumable transfer (Platform)
+- Source/target language selection (Product/UX)
+- Transcription + diarization baseline (AI/ML)
+- Basic translation + TTS dubbing (AI/ML)
+- Export and job status tracking (Platform/UX)
+
+#### Phase-2
+- Advanced lip-sync tuning (AI/ML)
+- Emotion/prosody controls (AI/ML + UX)
+- Enhanced noise cleanup pipeline (AI/ML)
+- Batch project workflows (Platform + UX)
+
+#### Phase-3
+- Studio automation templates (Platform)
+- Governance/compliance depth (Security + Platform)
+- Analytics and operational insights (Platform/Product)
+
+### 5) QA + Security + Rollout Gates
+#### QA Gates
+- [ ] Language-pair regression suite pass.
+- [ ] Multi-speaker consistency tests pass.
+- [ ] Sync/alignment threshold pass for release candidate.
+
+#### Security Gates
+- [ ] Secret scanning clean.
+- [ ] Access-control and audit logging verification complete.
+- [ ] Retention policy checks complete.
+
+#### Scalability Gates
+- [ ] Large-file upload reliability test pass.
+- [ ] Concurrent job processing load test pass.
+- [ ] Retry/recovery behavior validated.
+
+#### Rollout Gates
+- [ ] Pilot exit criteria met.
+- [ ] Beta exit criteria met.
+- [ ] Production go/no-go sign-off recorded.
