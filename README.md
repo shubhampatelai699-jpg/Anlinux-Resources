@@ -39,16 +39,19 @@ dubbing pipeline from upload to final export using state-of-the-art AI.
 
 ### 🏆 Why Dubkami is #1
 
-| Feature | Dubkami | Others |
+| Capability | Dubkami | Typical alternatives |
 | --- | --- | --- |
-| 🤖 Full AI Pipeline (ASR → TTS → Export) | ✅ End-to-end | ❌ Partial |
-| 🎙️ Per-speaker Voice Cloning | ✅ Yes | ❌ Rare |
-| 🗣️ 50+ Language Support | ✅ Yes | ⚠️ Limited |
-| 🎬 Lip-sync Alignment | ✅ Phase-2 | ❌ Missing |
-| 📁 5GB File Upload (Resumable) | ✅ Yes | ❌ No |
-| 🔒 Enterprise Security | ✅ Full | ⚠️ Basic |
-| 🇮🇳 Indian Language Priority | ✅ First-class | ❌ Afterthought |
-| 🤖 GitHub Copilot AI Development | ✅ Fully enabled | ❌ N/A |
+| 🤖 Full AI Pipeline (Upload → ASR → Translation → TTS → Export) | ✅ Unified end-to-end workflow | ❌ Often split across multiple tools |
+| 🧑‍🤝‍🧑 Multi-speaker Diarization + Voice Mapping | ✅ Speaker-aware pipeline | ⚠️ Limited or manual setup |
+| 🎙️ Per-speaker Voice Cloning | ✅ Built into dubbing flow | ❌ Rare or premium-only |
+| 🗣️ 50+ Language Support | ✅ Broad multilingual support | ⚠️ Fewer language options |
+| 👄 Lip-sync Alignment Roadmap | ✅ Included in Phase-2 vision | ❌ Frequently unavailable |
+| 📁 5GB File Upload (Resumable) | ✅ Large-file friendly | ❌ Smaller limits or unstable uploads |
+| 📦 Audio/Video Export + Subtitles/Transcripts | ✅ Multiple delivery outputs | ⚠️ Basic export options |
+| 🔄 Async Job Tracking for Long Content | ✅ Designed for long-running media jobs | ❌ Weak status visibility |
+| 🔒 Enterprise-grade Security Approach | ✅ Encryption, RBAC, auditability | ⚠️ Basic protection layers |
+| 🇮🇳 Indian Language Priority | ✅ First-class product focus | ❌ Usually not a core priority |
+| 🤖 GitHub Copilot-powered Development | ✅ Rapid AI-assisted product iteration | ❌ Not part of product workflow |
 
 ### 🌟 Core Capabilities
 - **🎧 ASR** — Automatic speech recognition (Whisper / OpenAI)
