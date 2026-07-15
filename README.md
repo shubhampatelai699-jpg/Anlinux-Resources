@@ -10,7 +10,7 @@ Scripts located at `Scripts/Bootstrap` are used to bootstrap the system.
 
 You will need to install some packages first:
 
-```
+```bash
 sudo apt-get install qemu-user-static debian-archive-keyring debootstrap
 ```
 
@@ -18,13 +18,13 @@ Then go to [Bootstrap](https://github.com/EXALAB/AnLinux-Resources/tree/master/S
 
 To bootstrap a system, run:
 
-```
+```bash
 ./bootstrap.sh <architecture> /path/to/bootstrap
 ```
 
 Example:
 
-```
+```bash
 ./bootstrap.sh armhf /home/user/ubuntu/armhf
 ```
 
@@ -32,7 +32,9 @@ Example:
 
 ## Dubkami
 
-**Dubkami** is an AI-powered dubbing and localization platform for Indian anime and video content. It automates the dubbing pipeline from upload through final export, supporting 50+ languages with per-speaker voice synthesis.
+**Dubkami** is an AI-powered dubbing and localization platform for Indian anime and video content. It automates the dubbing pipeline from upload through final export, supporting multiple languages with per-speaker voice synthesis.
+
+See the [Dubkami documentation](Dubkami/README.md) for the full master blueprint, execution schedule, and task board.
 
 ### Core Capabilities
 
@@ -81,7 +83,9 @@ Example:
 ### Phase 2 — Architecture
 
 **Pipeline:**
+```text
 ingestion → preprocessing → ASR/diarization → translation → TTS/voice generation → lip-sync → render/mastering → delivery
+```
 
 **Services:**
 
@@ -104,7 +108,7 @@ ingestion → preprocessing → ASR/diarization → translation → TTS/voice ge
 
 **Minimum API surface:**
 
-```
+```text
 POST /projects
 POST /jobs
 POST /uploads/init
