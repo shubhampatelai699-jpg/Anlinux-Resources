@@ -14,7 +14,7 @@ You will need to install some packages first:
 sudo apt-get install qemu-user-static debian-archive-keyring debootstrap
 ```
 
-Then go to [Bootstrap](https://github.com/EXALAB/Anlinux-Resources/tree/master/Scripts/Bootstrap) and download the `bootstrap.sh` script. (Follow any instructions in that directory before running the script.)
+Then go to [Bootstrap](https://github.com/EXALAB/AnLinux-Resources/tree/master/Scripts/Bootstrap) and download the `bootstrap.sh` script. (Follow any instructions in that directory before running the script.)
 
 To bootstrap a system, run:
 
@@ -253,4 +253,4 @@ Active sprint: **Week 5 — MVP Sprint 3**
 | 8 | Release | Release Manager | P0 | ⏳ To Do | Pilot launch and feedback triage |
 | 8 | Product | Product + Leadership | P0 | ⏳ To Do | Beta go/no-go decision |
 
-**Status legend:** ✅ Done | 🔄 In Progress | ⏳ To Do | 🚫 Blocked
+**Status legend:** `✅ Done | 🔄 In Progress | ⏳ To Do | 🚫 Blocked`
