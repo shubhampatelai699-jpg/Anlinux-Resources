@@ -156,7 +156,7 @@ GET  /exports/{id}
 
 ## Dubkami — Execution Schedule
 
-Active sprint: **Week 4 — MVP Sprint 2**
+Active sprint: **Week 5 — MVP Sprint 3**
 
 | Week | Milestone | Deliverables |
 | --- | --- | --- |
@@ -186,15 +186,20 @@ Active sprint: **Week 4 — MVP Sprint 2**
 - [x] Project/job creation + status tracking *(Backend Engineer)*
 - [x] Storage integration baseline *(Platform Engineer)*
 
-**Week 4 — MVP Sprint 2: In Progress**
-- [ ] ASR + speaker diarization baseline *(ML Lead)*
-- [ ] Source/target language flow *(NLP Engineer)*
-- [ ] Basic translation pipeline *(NLP Engineer)*
+**Week 4 — MVP Sprint 2: Complete**
+- [x] ASR + speaker diarization baseline *(ML Lead)*
+- [x] Source/target language flow *(NLP Engineer)*
+- [x] Basic translation pipeline *(NLP Engineer)*
 
-**Week 5 — MVP Sprint 3: Upcoming**
+**Week 5 — MVP Sprint 3: In Progress**
 - [ ] TTS dubbing per speaker *(Speech Engineer)*
 - [ ] Export pipeline (audio/video) *(Media Pipeline Engineer)*
 - [ ] First end-to-end integration *(Eng Team)*
+
+**Week 6 — MVP Hardening: Upcoming**
+- [ ] Bug fixes + quality tuning *(Eng Team)*
+- [ ] Multi-speaker consistency improvements *(ML Team)*
+- [ ] MVP release candidate cut *(Eng Team)*
 
 ---
 
@@ -236,10 +241,10 @@ Active sprint: **Week 4 — MVP Sprint 2**
 | 2 | API | Backend Lead | P0 | ✅ Done | API contract v1 freeze |
 | 3 | Platform | Platform Engineer | P0 | ✅ Done | Upload + resumable transfer + storage baseline |
 | 3 | Workflow | Backend Engineer | P0 | ✅ Done | Project/job creation and tracking |
-| 4 | AI/ML | ML Lead | P0 | 🔄 In Progress | ASR + diarization baseline |
-| 4 | AI/ML | NLP Engineer | P0 | 🔄 In Progress | Source/target language flow + translation baseline |
-| 5 | AI/ML | Speech Engineer | P0 | ⏳ To Do | TTS dubbing per speaker |
-| 5 | Platform | Media Pipeline Engineer | P0 | ⏳ To Do | Export pipeline + end-to-end integration |
+| 4 | AI/ML | ML Lead | P0 | ✅ Done | ASR + diarization baseline |
+| 4 | AI/ML | NLP Engineer | P0 | ✅ Done | Source/target language flow + translation baseline |
+| 5 | AI/ML | Speech Engineer | P0 | 🔄 In Progress | TTS dubbing per speaker |
+| 5 | Platform | Media Pipeline Engineer | P0 | 🔄 In Progress | Export pipeline + end-to-end integration |
 | 6 | Engineering | Eng Team | P0 | ⏳ To Do | Bug fixes + quality tuning |
 | 6 | AI/ML | ML Team | P1 | ⏳ To Do | Multi-speaker consistency improvements |
 | 7 | QA | QA Team | P0 | ⏳ To Do | QA gates execution |
