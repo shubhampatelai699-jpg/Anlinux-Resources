@@ -223,4 +223,4 @@ Active sprint: **Week 5 — MVP Sprint 3**
 | 8 | Release | Release Manager | P0 | ⏳ To Do | Pilot launch and feedback triage |
 | 8 | Product | Product + Leadership | P0 | ⏳ To Do | Beta go/no-go decision |
 
-**Status legend:** `✅ Done | 🔄 In Progress | ⏳ To Do | 🚫 Blocked`
+**Status legend:** `✅ Done \| 🔄 In Progress \| ⏳ To Do \| 🚫 Blocked`
