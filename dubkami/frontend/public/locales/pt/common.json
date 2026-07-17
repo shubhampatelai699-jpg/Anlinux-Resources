@@ -1,0 +1,104 @@
+{
+  "home": {
+    "tagline": "Dublagem com IA para todos os idiomas",
+    "uploadSection": "Envie seu arquivo",
+    "languageSection": "Configurações de idioma",
+    "dubNow": "Dublar agora",
+    "processing": "Enviando…",
+    "studiosLink": "Meus Estúdios"
+  },
+  "upload": {
+    "clickOrDrag": "Clique para enviar ou arraste e solte",
+    "hint": "Áudio ou vídeo · até 5 GB",
+    "dropHere": "Solte o arquivo aqui…",
+    "tooLarge": "O arquivo excede o limite de 5 GB.",
+    "rejected": "Tipo de arquivo não suportado. Por favor, envie um arquivo de áudio ou vídeo.",
+    "uploading": "Enviando para o armazenamento…"
+  },
+  "language": {
+    "select": "Selecione um idioma",
+    "source": "Idioma de origem",
+    "targets": "Idiomas de destino",
+    "selected": "idioma(s) selecionado(s)"
+  },
+  "form": {
+    "incomplete": "Por favor, selecione um arquivo, idioma de origem e pelo menos um idioma de destino.",
+    "error": "Algo deu errado. Por favor, tente novamente."
+  },
+  "job": {
+    "title": "Trabalho de dublagem",
+    "connecting": "Conectando ao fluxo de status…",
+    "completed": "Dublagem concluída!",
+    "failed": "Trabalho falhou.",
+    "failedMessage": "O trabalho de dublagem falhou. Por favor, tente novamente ou entre em contato com o suporte.",
+    "downloads": "Baixar arquivos dublados",
+    "newJob": "Iniciar novo trabalho"
+  },
+  "speakers": {
+    "title": "Confirmar locutores",
+    "description": "Detectamos múltiplos locutores. Por favor, dê um nome a cada um e escolha uma voz antes de prosseguir.",
+    "label": "Rótulo detectado",
+    "displayName": "Nome (opcional)",
+    "voice": "Voz",
+    "autoSelect": "Seleção automática",
+    "confirmAll": "Confirmar e continuar",
+    "saving": "Salvando…"
+  },
+  "studios": {
+    "title": "Estúdios de IA",
+    "tagline": "Gerencie seus projetos de dublagem, equipe e faturamento",
+    "newStudio": "Novo estúdio",
+    "noStudios": "Você ainda não tem nenhum estúdio.",
+    "createFirst": "Crie seu primeiro estúdio para começar.",
+    "studioName": "Nome do estúdio",
+    "create": "Criar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "rename": "Renomear",
+    "save": "Salvar",
+    "tabs": {
+      "projects": "Projetos",
+      "team": "Equipe",
+      "billing": "Faturamento"
+    },
+    "projects": {
+      "title": "Projetos",
+      "noJobs": "Nenhum trabalho de dublagem neste estúdio ainda.",
+      "startJob": "Iniciar novo trabalho de dublagem",
+      "status": "Status",
+      "file": "Arquivo",
+      "languages": "Idiomas",
+      "progress": "Progresso",
+      "created": "Criado"
+    },
+    "team": {
+      "title": "Membros da equipe",
+      "invite": "Convidar membro",
+      "inviteEmail": "Endereço de e-mail",
+      "inviteRole": "Função",
+      "sendInvite": "Enviar convite",
+      "remove": "Remover",
+      "pending": "Pendente",
+      "roles": {
+        "owner": "Proprietário",
+        "admin": "Administrador",
+        "member": "Membro"
+      }
+    },
+    "billing": {
+      "title": "Faturamento e uso",
+      "plan": "Plano atual",
+      "usage": "Uso este mês",
+      "limit": "Limite mensal",
+      "members": "Membros da equipe",
+      "upgrade": "Atualizar plano",
+      "plans": {
+        "free": "Grátis",
+        "pro": "Pro",
+        "enterprise": "Empresarial"
+      },
+      "seconds": "segundos",
+      "of": "de"
+    }
+  }
+}

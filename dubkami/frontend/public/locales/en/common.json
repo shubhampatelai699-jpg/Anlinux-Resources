@@ -4,8 +4,105 @@
     "uploadSection": "Upload your file",
     "languageSection": "Language settings",
     "dubNow": "Dub Now",
-    "processing": "Uploading…"
+    "processing": "Uploading…",
+    "studiosLink": "My Studios"
   },
+  "upload": {
+    "clickOrDrag": "Click to upload or drag & drop",
+    "hint": "Audio or video · up to 5 GB",
+    "dropHere": "Drop the file here…",
+    "tooLarge": "File exceeds the 5 GB limit.",
+    "rejected": "Unsupported file type. Please upload an audio or video file.",
+    "uploading": "Uploading to storage…"
+  },
+  "language": {
+    "select": "Select a language",
+    "source": "Source language",
+    "targets": "Target languages",
+    "selected": "language(s) selected"
+  },
+  "form": {
+    "incomplete": "Please select a file, source language, and at least one target language.",
+    "error": "Something went wrong. Please try again."
+  },
+  "job": {
+    "title": "Dubbing job",
+    "connecting": "Connecting to status stream…",
+    "completed": "Dubbing complete!",
+    "failed": "Job failed.",
+    "failedMessage": "The dubbing job failed. Please try again or contact support.",
+    "downloads": "Download dubbed files",
+    "newJob": "Start a new job"
+  },
+  "speakers": {
+    "title": "Confirm speakers",
+    "description": "We detected multiple speakers. Please give each one a name and choose a voice before we proceed.",
+    "label": "Detected label",
+    "displayName": "Name (optional)",
+    "voice": "Voice",
+    "autoSelect": "Auto-select",
+    "confirmAll": "Confirm & continue",
+    "saving": "Saving…"
+  },
+  "studios": {
+    "title": "AI Studios",
+    "tagline": "Manage your dubbing projects, team and billing",
+    "newStudio": "New Studio",
+    "noStudios": "You don't have any studios yet.",
+    "createFirst": "Create your first studio to get started.",
+    "studioName": "Studio name",
+    "create": "Create",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "rename": "Rename",
+    "save": "Save",
+    "tabs": {
+      "projects": "Projects",
+      "team": "Team",
+      "billing": "Billing"
+    },
+    "projects": {
+      "title": "Projects",
+      "noJobs": "No dubbing jobs in this studio yet.",
+      "startJob": "Start a new dubbing job",
+      "status": "Status",
+      "file": "File",
+      "languages": "Languages",
+      "progress": "Progress",
+      "created": "Created"
+    },
+    "team": {
+      "title": "Team members",
+      "invite": "Invite member",
+      "inviteEmail": "Email address",
+      "inviteRole": "Role",
+      "sendInvite": "Send invite",
+      "remove": "Remove",
+      "pending": "Pending",
+      "roles": {
+        "owner": "Owner",
+        "admin": "Admin",
+        "member": "Member"
+      }
+    },
+    "billing": {
+      "title": "Billing & usage",
+      "plan": "Current plan",
+      "usage": "Usage this month",
+      "limit": "Monthly limit",
+      "members": "Team members",
+      "upgrade": "Upgrade plan",
+      "plans": {
+        "free": "Free",
+        "pro": "Pro",
+        "enterprise": "Enterprise"
+      },
+      "seconds": "seconds",
+      "of": "of"
+    }
+  }
+}
+
   "upload": {
     "clickOrDrag": "Click to upload or drag & drop",
     "hint": "Audio or video · up to 5 GB",

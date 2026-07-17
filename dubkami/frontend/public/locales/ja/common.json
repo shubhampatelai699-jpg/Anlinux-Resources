@@ -1,0 +1,104 @@
+{
+  "home": {
+    "tagline": "あらゆる言語に対応したAI吹き替え",
+    "uploadSection": "ファイルをアップロード",
+    "languageSection": "言語設定",
+    "dubNow": "今すぐ吹き替え",
+    "processing": "アップロード中…",
+    "studiosLink": "マイスタジオ"
+  },
+  "upload": {
+    "clickOrDrag": "クリックまたはドラッグ＆ドロップでアップロード",
+    "hint": "音声または動画 · 最大5GB",
+    "dropHere": "ここにファイルをドロップ…",
+    "tooLarge": "ファイルが5GBの制限を超えています。",
+    "rejected": "サポートされていないファイル形式です。音声または動画ファイルをアップロードしてください。",
+    "uploading": "ストレージにアップロード中…"
+  },
+  "language": {
+    "select": "言語を選択",
+    "source": "元の言語",
+    "targets": "対象言語",
+    "selected": "言語が選択されました"
+  },
+  "form": {
+    "incomplete": "ファイル、元の言語、および少なくとも1つの対象言語を選択してください。",
+    "error": "エラーが発生しました。もう一度お試しください。"
+  },
+  "job": {
+    "title": "吹き替えジョブ",
+    "connecting": "ステータスストリームに接続中…",
+    "completed": "吹き替え完了！",
+    "failed": "ジョブが失敗しました。",
+    "failedMessage": "吹き替えジョブが失敗しました。もう一度お試しいただくか、サポートにご連絡ください。",
+    "downloads": "吹き替えファイルをダウンロード",
+    "newJob": "新しいジョブを開始"
+  },
+  "speakers": {
+    "title": "話者を確認",
+    "description": "複数の話者が検出されました。続行する前に、それぞれに名前と音声を選択してください。",
+    "label": "検出されたラベル",
+    "displayName": "名前（任意）",
+    "voice": "音声",
+    "autoSelect": "自動選択",
+    "confirmAll": "確認して続行",
+    "saving": "保存中…"
+  },
+  "studios": {
+    "title": "AIスタジオ",
+    "tagline": "吹き替えプロジェクト、チーム、請求を管理",
+    "newStudio": "新しいスタジオ",
+    "noStudios": "まだスタジオがありません。",
+    "createFirst": "最初のスタジオを作成して始めましょう。",
+    "studioName": "スタジオ名",
+    "create": "作成",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "rename": "名前を変更",
+    "save": "保存",
+    "tabs": {
+      "projects": "プロジェクト",
+      "team": "チーム",
+      "billing": "請求"
+    },
+    "projects": {
+      "title": "プロジェクト",
+      "noJobs": "このスタジオにはまだ吹き替えジョブがありません。",
+      "startJob": "新しい吹き替えジョブを開始",
+      "status": "ステータス",
+      "file": "ファイル",
+      "languages": "言語",
+      "progress": "進捗",
+      "created": "作成日"
+    },
+    "team": {
+      "title": "チームメンバー",
+      "invite": "メンバーを招待",
+      "inviteEmail": "メールアドレス",
+      "inviteRole": "役割",
+      "sendInvite": "招待を送信",
+      "remove": "削除",
+      "pending": "保留中",
+      "roles": {
+        "owner": "オーナー",
+        "admin": "管理者",
+        "member": "メンバー"
+      }
+    },
+    "billing": {
+      "title": "請求と使用状況",
+      "plan": "現在のプラン",
+      "usage": "今月の使用量",
+      "limit": "月間制限",
+      "members": "チームメンバー",
+      "upgrade": "プランをアップグレード",
+      "plans": {
+        "free": "無料",
+        "pro": "プロ",
+        "enterprise": "エンタープライズ"
+      },
+      "seconds": "秒",
+      "of": "/"
+    }
+  }
+}

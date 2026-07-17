@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import FileUpload from '@/components/FileUpload';
@@ -79,6 +80,12 @@ export default function HomePage() {
       <header className="mb-10 text-center">
         <h1 className="text-4xl font-bold text-brand-700 tracking-tight">Dubkami</h1>
         <p className="mt-2 text-gray-500 text-lg">{t('home.tagline')}</p>
+        <Link
+          href="/studios"
+          className="inline-block mt-3 text-sm text-brand-500 hover:underline"
+        >
+          {t('home.studiosLink')} →
+        </Link>
       </header>
 
       <main className="w-full max-w-2xl bg-white shadow-xl rounded-3xl p-8 space-y-8">
