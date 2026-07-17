@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RTL global support */
+[dir='rtl'] .rtl-mirror {
+  transform: scaleX(-1);
+}

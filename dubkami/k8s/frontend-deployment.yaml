@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dubkami-frontend
+  labels:
+    app: dubkami-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dubkami-frontend
+  template:
+    metadata:
+      labels:
+        app: dubkami-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: dubkami/frontend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_API_URL
+              value: "https://api.dubkami.com"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dubkami-frontend
+spec:
+  selector:
+    app: dubkami-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dubkami-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "5g"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+    - hosts:
+        - dubkami.com
+        - api.dubkami.com
+      secretName: dubkami-tls
+  rules:
+    - host: dubkami.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dubkami-frontend
+                port:
+                  number: 80
+    - host: api.dubkami.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dubkami-api
+                port:
+                  number: 80
