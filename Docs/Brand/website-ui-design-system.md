@@ -226,3 +226,29 @@ Explore new stories. Discover new characters. Enter new worlds.
 - Use low-contrast text on dark backgrounds.
 - Mix too many font styles.
 - Make Dubkami compete with Indian One Anime; Dubkami should support the main platform identity.
+
+## 11. Entertainment Streaming Upgrade Modules
+
+Use the same design system to scale the brand from a landing page into a fuller streaming-focused experience.
+
+### Website Modules
+
+- **Hero carousel** for flagship anime and campaign banners
+- **Trending rail** with ranked or highlighted poster cards
+- **Category shelves** for action, fantasy, romance, comedy, and dubbed picks
+- **Anime detail layout** with poster, synopsis, badges, episode status, and related titles
+- **Search and filter bar** with mobile-friendly chips and clear empty states
+
+### App Modules
+
+- **App home feed** mirroring website sections for instant familiarity
+- **Continue exploring row** for quick return to in-progress discovery
+- **Compact detail screen** with strong CTA hierarchy and poster-first layout
+- **Download CTA panels** that keep Dubkami visible without overwhelming content
+
+## 12. Upgrade Delivery Notes
+
+- Prioritize responsive components that work on both website and mobile surfaces.
+- Keep CTA language consistent: **Explore Anime**, **Watch Now**, **Get Dubkami App**.
+- Use modular cards and section blocks so future streaming features can be added without redesigning the whole experience.
+- Treat app and website as one entertainment ecosystem with shared visual tokens and content structure.
