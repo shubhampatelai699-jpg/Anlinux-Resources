@@ -1,0 +1,50 @@
+{
+  "name": "Indian One Anime",
+  "short_name": "IOAnime",
+  "description": "India's Anime Streaming Hub — Watch Hindi & English dubbed anime in HD quality",
+  "start_url": "/index.html",
+  "id": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0A0A0F",
+  "theme_color": "#FFD700",
+  "categories": ["entertainment"],
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/screenshot-home.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Home Page"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse Anime",
+      "short_name": "Browse",
+      "url": "/anime.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "New Releases",
+      "short_name": "New",
+      "url": "/new-releases.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
