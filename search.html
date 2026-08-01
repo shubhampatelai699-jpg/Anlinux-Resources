@@ -3,33 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Page not found — Indian One Anime. Go back to the homepage and keep watching." />
-  <title>404 — Page Not Found | Indian One Anime</title>
+  <meta name="description" content="Search 1000+ anime titles on Indian One Anime. Filter by genre and status — Hindi & English dubbed, HD quality." />
+  <title>Search Anime — Indian One Anime</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://shubhampatelai699-jpg.github.io/Anlinux-Resources/404.html" />
-  <meta property="og:title" content="404 — Page Not Found | Indian One Anime" />
-  <meta property="og:description" content="Page not found — Indian One Anime. Go back to the homepage and keep watching your favourite anime." />
+  <meta property="og:title" content="Search Anime — Indian One Anime" />
+  <meta property="og:description" content="Search 1000+ anime titles — Hindi & English dubbed, HD quality streaming." />
   <meta property="og:site_name" content="Indian One Anime" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="404 — Page Not Found | Indian One Anime" />
-  <meta name="twitter:description" content="This page doesn't exist — head back to Indian One Anime and keep watching." />
-
-  <!-- PWA -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#FFD700" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="IOAnime" />
-
-  <!-- Prevent theme flash -->
   <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('ioaTheme')||'dark')}catch(e){}</script>
 <body>
+
+  <!-- ===== NEW RELEASES STRIP ===== -->
+  <div class="banner-new-releases">
+    <div class="container">
+      <div class="banner-new-releases__inner">
+        <span class="badge" style="margin-bottom:0;flex-shrink:0;">🆕 New</span>
+        <div class="new-releases-scroll">
+          <a href="watch.html" class="new-release-chip">Demon Slayer S4</a>
+          <a href="watch.html" class="new-release-chip">Jujutsu Kaisen S3</a>
+          <a href="watch.html" class="new-release-chip">One Piece</a>
+          <a href="watch.html" class="new-release-chip">Solo Leveling</a>
+          <a href="watch.html" class="new-release-chip">Bleach TYBW</a>
+          <a href="watch.html" class="new-release-chip">Naruto Shippuden</a>
+          <a href="watch.html" class="new-release-chip">Attack on Titan</a>
+          <a href="watch.html" class="new-release-chip">Chainsaw Man S2</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="nav-main" aria-label="Main navigation">
@@ -39,7 +48,7 @@
           <span class="nav-main__logo-icon">🦁</span>
           <span>Indian One Anime</span>
         </a>
-                <div class="nav-main__links" id="nav-links">
+        <div class="nav-main__links" id="nav-links">
           <a href="index.html">Home</a>
           <a href="anime.html">Browse</a>
           <a href="schedule.html">Schedule</a>
@@ -55,77 +64,60 @@
     </div>
   </nav>
 
-  <!-- ===== 404 SECTION ===== -->
-  <section class="section-404" aria-labelledby="error-heading">
+  <!-- ===== SEARCH PAGE ===== -->
+  <section class="section-search-page" aria-labelledby="search-page-heading">
     <div class="container">
-      <div class="section-404__inner">
-        <span class="error-404__code accent">404</span>
-        <h1 class="error-404__title" id="error-heading">
-          Page <span class="accent">Not Found</span>
-        </h1>
-        <p>Looks like this page went on a training arc and never came back.</p>
-        <p class="hindi-text" style="font-size:0.9rem;color:var(--color-text-secondary);">
-          Yeh page nahi mila — shayad woh filhaal kisi aur dimension mein hai. 🦁
-        </p>
-        <div class="error-404__actions">
-          <a href="index.html" class="btn-primary btn--large">Go Home</a>
-          <a href="anime.html" class="btn-outline btn--large">Browse Anime</a>
-        </div>
-        <p style="color:var(--color-text-secondary);font-size:0.85rem;margin-top:4px;">
-          Found a broken link? <a href="contact.html" style="color:var(--color-gold);">Report it here →</a>
-        </p>
-        <span class="error-404__lion" aria-hidden="true">🦁</span>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== SUGGESTIONS ===== -->
-  <section style="padding:var(--section-pad-mobile);background:var(--color-bg-surface);" aria-labelledby="suggestions-heading">
-    <div class="container">
-      <div class="section-header">
-        <h2 id="suggestions-heading">Maybe You Were Looking For…</h2>
+      <div class="search-hero">
+        <span class="badge">🔍 Search</span>
+        <h1 id="search-page-heading">Find Your <span class="accent">Anime</span></h1>
+        <form class="search-bar" role="search" id="search-page-form">
+          <input
+            type="search"
+            id="search-page-input"
+            class="search-bar__input"
+            placeholder="Search by title, genre, character…"
+            aria-label="Search anime"
+            autocomplete="off"
+          />
+          <button type="submit" class="search-bar__btn" id="search-page-btn">Search</button>
+        </form>
       </div>
-      <div class="anime-grid">
-        <article class="card-anime">
-          <div class="card-anime__thumb">DS</div>
-          <div class="card-anime__body">
-            <h3>Demon Slayer</h3>
-            <p class="accent" style="font-size:0.8rem;">S4 • Ongoing</p>
-            <p>Tanjiro's quest continues against the demons threatening humanity.</p>
-            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
-          </div>
-        </article>
-        <article class="card-anime">
-          <div class="card-anime__thumb">JJK</div>
-          <div class="card-anime__body">
-            <h3>Jujutsu Kaisen</h3>
-            <p class="accent" style="font-size:0.8rem;">S3 • Ongoing</p>
-            <p>Yuji battles cursed spirits in the deadliest game yet.</p>
-            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
-          </div>
-        </article>
-        <article class="card-anime">
-          <div class="card-anime__thumb">OP</div>
-          <div class="card-anime__body">
-            <h3>One Piece</h3>
-            <p class="accent" style="font-size:0.8rem;">Egghead Arc • Ongoing</p>
-            <p>Luffy and crew face Dr. Vegapunk on Egghead Island.</p>
-            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
-          </div>
-        </article>
-        <article class="card-anime">
-          <div class="card-anime__thumb">SL</div>
-          <div class="card-anime__body">
-            <h3>Solo Leveling</h3>
-            <p class="accent" style="font-size:0.8rem;">S1 • Complete</p>
-            <p>The weakest hunter rises to become the world's strongest.</p>
-            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
-          </div>
-        </article>
+
+      <!-- Filters -->
+      <div class="search-filter-row" role="group" aria-label="Filter results">
+        <select id="search-genre-select" aria-label="Filter by genre">
+          <option value="">All Genres</option>
+          <option value="action">Action</option>
+          <option value="adventure">Adventure</option>
+          <option value="comedy">Comedy</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="historical">Historical</option>
+          <option value="mecha">Mecha</option>
+          <option value="romance">Romance</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="slice of life">Slice of Life</option>
+          <option value="sports">Sports</option>
+          <option value="supernatural">Supernatural</option>
+          <option value="thriller">Thriller</option>
+        </select>
+        <select id="search-status-select" aria-label="Filter by status">
+          <option value="">All Status</option>
+          <option value="ongoing">Ongoing</option>
+          <option value="complete">Complete</option>
+          <option value="classic">Classic</option>
+        </select>
       </div>
-      <div style="text-align:center;margin-top:32px;">
-        <a href="anime.html" class="btn-outline">View All Anime →</a>
+
+      <p class="search-results-meta" id="search-results-meta" aria-live="polite">
+        Found <span>0</span> titles
+      </p>
+
+      <!-- Results grid -->
+      <div class="anime-grid" id="search-results-grid" aria-label="Search results">
+        <!-- Populated by app.js -->
       </div>
+
     </div>
   </section>
 
@@ -144,7 +136,7 @@
         <div class="footer-main__links">
           <nav class="footer-col" aria-label="Browse">
             <h4>Browse</h4>
-                      <ul>
+            <ul>
               <li><a href="anime.html">All Anime</a></li>
               <li><a href="genres.html">Genres</a></li>
               <li><a href="schedule.html">Schedule</a></li>
@@ -157,7 +149,6 @@
             <ul>
               <li><a href="dubkami.html">Download Free</a></li>
               <li><a href="dubkami.html#features">Features</a></li>
-              <li><a href="dubkami.html#screenshots">Screenshots</a></li>
             </ul>
           </nav>
           <nav class="footer-col" aria-label="Info">
@@ -177,7 +168,6 @@
       </div>
     </div>
   </footer>
-
 
   <!-- ===== PWA INSTALL BANNER ===== -->
   <div class="pwa-install-banner is-hidden" id="pwa-install-banner" role="dialog" aria-label="Install app">

@@ -60,14 +60,16 @@
           <span class="nav-main__logo-icon">🦁</span>
           <span>Indian One Anime</span>
         </a>
-        <div class="nav-main__links" id="nav-links">
+                <div class="nav-main__links" id="nav-links">
           <a href="index.html">Home</a>
-          <a href="anime.html">Browse Anime</a>
-          <a href="new-releases.html">New Releases</a>
-          <a href="dubkami.html" style="color:var(--color-gold);">Dubkami App</a>
-          <a href="contact.html">Contact</a>
+          <a href="anime.html">Browse</a>
+          <a href="schedule.html">Schedule</a>
+          <a href="genres.html">Genres</a>
+          <a href="new-releases.html">New</a>
+          <a href="watchlist.html">Watchlist <span class="watchlist-count" id="nav-watchlist-count"></span></a>
+          <a href="dubkami.html" style="color:var(--color-gold);">Dubkami</a>
         </div>
-        <a href="dubkami.html" class="btn-primary btn--small" style="display:none;" id="nav-cta">Get App</a>
+        <button class="nav-search-btn" id="search-open-btn" aria-label="Search anime">🔍</button>
         <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">☀️</button>
         <button class="nav-main__toggle" aria-label="Open menu" aria-expanded="false" id="nav-toggle">☰</button>
       </div>
@@ -448,12 +450,12 @@
         <div class="footer-main__links">
           <nav class="footer-col" aria-label="Browse">
             <h4>Browse</h4>
-            <ul>
+                      <ul>
               <li><a href="anime.html">All Anime</a></li>
-              <li><a href="anime.html?genre=action">Action</a></li>
-              <li><a href="anime.html?genre=romance">Romance</a></li>
-              <li><a href="anime.html?genre=comedy">Comedy</a></li>
-              <li><a href="anime.html?status=ongoing">Ongoing</a></li>
+              <li><a href="genres.html">Genres</a></li>
+              <li><a href="schedule.html">Schedule</a></li>
+              <li><a href="new-releases.html">New Releases</a></li>
+              <li><a href="watchlist.html">My Watchlist</a></li>
             </ul>
           </nav>
           <nav class="footer-col" aria-label="App">
@@ -483,18 +485,6 @@
   </footer>
 
   <script>
-    const toggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-    const navCta = document.getElementById('nav-cta');
-    if (toggle && navLinks) {
-      toggle.addEventListener('click', function () {
-        const isOpen = navLinks.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', isOpen.toString());
-        toggle.textContent = isOpen ? '✕' : '☰';
-        if (navCta) navCta.style.display = isOpen ? 'inline-block' : 'none';
-      });
-    }
-
     // Hero flex direction on desktop
     const heroInner = document.getElementById('playstore-hero-inner');
     function setHeroLayout() {

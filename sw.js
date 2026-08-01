@@ -3,7 +3,7 @@
    Cache-first for static assets, network-first for HTML
    ===================================================== */
 
-var CACHE_NAME = 'ioa-v1';
+var CACHE_NAME = 'ioa-v2';
 
 var STATIC_ASSETS = [
   '/index.html',
@@ -14,6 +14,10 @@ var STATIC_ASSETS = [
   '/dubkami.html',
   '/contact.html',
   '/404.html',
+  '/search.html',
+  '/schedule.html',
+  '/genres.html',
+  '/watchlist.html',
   '/style.css',
   '/app.js',
   '/manifest.json'

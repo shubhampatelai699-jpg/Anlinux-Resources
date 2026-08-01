@@ -41,6 +41,24 @@
       "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
     },
     {
+      "name": "Search",
+      "short_name": "Search",
+      "url": "/search.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Schedule",
+      "short_name": "Schedule",
+      "url": "/schedule.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My Watchlist",
+      "short_name": "Watchlist",
+      "url": "/watchlist.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
       "name": "New Releases",
       "short_name": "New",
       "url": "/new-releases.html",

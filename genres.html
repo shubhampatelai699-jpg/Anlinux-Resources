@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse anime by genre on Indian One Anime — Action, Romance, Fantasy, Thriller and more. Hindi & English dubbed." />
+  <title>Browse by Genre — Indian One Anime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Browse by Genre — Indian One Anime" />
+  <meta property="og:description" content="Action, Fantasy, Romance, Thriller and more — browse anime by genre in Hindi & English dub." />
+  <meta property="og:site_name" content="Indian One Anime" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#FFD700" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="IOAnime" />
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('ioaTheme')||'dark')}catch(e){}</script>
+<body>
+
+  <!-- ===== NEW RELEASES STRIP ===== -->
+  <div class="banner-new-releases">
+    <div class="container">
+      <div class="banner-new-releases__inner">
+        <span class="badge" style="margin-bottom:0;flex-shrink:0;">🆕 New</span>
+        <div class="new-releases-scroll">
+          <a href="watch.html" class="new-release-chip">Demon Slayer S4</a>
+          <a href="watch.html" class="new-release-chip">Jujutsu Kaisen S3</a>
+          <a href="watch.html" class="new-release-chip">One Piece</a>
+          <a href="watch.html" class="new-release-chip">Solo Leveling</a>
+          <a href="watch.html" class="new-release-chip">Bleach TYBW</a>
+          <a href="watch.html" class="new-release-chip">Chainsaw Man S2</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="nav-main" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-main__inner">
+        <a href="index.html" class="nav-main__logo" aria-label="Indian One Anime home">
+          <span class="nav-main__logo-icon">🦁</span>
+          <span>Indian One Anime</span>
+        </a>
+        <div class="nav-main__links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="anime.html">Browse</a>
+          <a href="schedule.html">Schedule</a>
+          <a href="genres.html" style="color:var(--color-gold);">Genres</a>
+          <a href="new-releases.html">New</a>
+          <a href="watchlist.html">Watchlist <span class="watchlist-count" id="nav-watchlist-count"></span></a>
+          <a href="dubkami.html">Dubkami</a>
+        </div>
+        <button class="nav-search-btn" id="search-open-btn" aria-label="Search anime">🔍</button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">☀️</button>
+        <button class="nav-main__toggle" aria-label="Open menu" aria-expanded="false" id="nav-toggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== GENRES SECTION ===== -->
+  <section class="section-genres" aria-labelledby="genres-heading">
+    <div class="container">
+
+      <div class="genres-hero">
+        <span class="badge">🎭 Browse</span>
+        <h1 id="genres-heading">Browse by <span class="accent">Genre</span></h1>
+        <p>Find your perfect anime by picking a genre you love.</p>
+      </div>
+
+      <div class="genres-grid" aria-label="Anime genres">
+
+        <a href="anime.html?genre=action" class="card-genre" aria-label="Action anime">
+          <span class="card-genre__icon">⚔️</span>
+          <span class="card-genre__name">Action</span>
+          <span class="card-genre__count">Demon Slayer, JJK, Bleach &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=adventure" class="card-genre" aria-label="Adventure anime">
+          <span class="card-genre__icon">🗺️</span>
+          <span class="card-genre__name">Adventure</span>
+          <span class="card-genre__count">One Piece, HxH, Naruto &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=fantasy" class="card-genre" aria-label="Fantasy anime">
+          <span class="card-genre__icon">🔮</span>
+          <span class="card-genre__name">Fantasy</span>
+          <span class="card-genre__count">Black Clover, Re:Zero, Overlord &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=thriller" class="card-genre" aria-label="Thriller anime">
+          <span class="card-genre__icon">🎭</span>
+          <span class="card-genre__name">Thriller</span>
+          <span class="card-genre__count">Attack on Titan, Death Note &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=romance" class="card-genre" aria-label="Romance anime">
+          <span class="card-genre__icon">💕</span>
+          <span class="card-genre__name">Romance</span>
+          <span class="card-genre__count">Kaguya-sama, Toradora &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=comedy" class="card-genre" aria-label="Comedy anime">
+          <span class="card-genre__icon">😂</span>
+          <span class="card-genre__name">Comedy</span>
+          <span class="card-genre__count">Spy x Family, Gintama &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=supernatural" class="card-genre" aria-label="Supernatural anime">
+          <span class="card-genre__icon">👻</span>
+          <span class="card-genre__name">Supernatural</span>
+          <span class="card-genre__count">Noragami, Blue Exorcist &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=sci-fi" class="card-genre" aria-label="Sci-Fi anime">
+          <span class="card-genre__icon">🚀</span>
+          <span class="card-genre__name">Sci-Fi</span>
+          <span class="card-genre__count">SAO, Steins;Gate, Code Geass &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=slice-of-life" class="card-genre" aria-label="Slice of Life anime">
+          <span class="card-genre__icon">🌸</span>
+          <span class="card-genre__name">Slice of Life</span>
+          <span class="card-genre__count">Your Lie in April, Clannad &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=sports" class="card-genre" aria-label="Sports anime">
+          <span class="card-genre__icon">⚽</span>
+          <span class="card-genre__name">Sports</span>
+          <span class="card-genre__count">Haikyuu, Kuroko no Basket &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=mecha" class="card-genre" aria-label="Mecha anime">
+          <span class="card-genre__icon">🤖</span>
+          <span class="card-genre__name">Mecha</span>
+          <span class="card-genre__count">Gurren Lagann, Evangelion &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=historical" class="card-genre" aria-label="Historical anime">
+          <span class="card-genre__icon">⛩️</span>
+          <span class="card-genre__name">Historical</span>
+          <span class="card-genre__count">Vinland Saga, Rurouni Kenshin &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=horror" class="card-genre" aria-label="Horror anime">
+          <span class="card-genre__icon">🩸</span>
+          <span class="card-genre__name">Horror</span>
+          <span class="card-genre__count">Junji Ito Collection &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=drama" class="card-genre" aria-label="Drama anime">
+          <span class="card-genre__icon">🎬</span>
+          <span class="card-genre__name">Drama</span>
+          <span class="card-genre__count">Anohana, Violet Evergarden &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=music" class="card-genre" aria-label="Music anime">
+          <span class="card-genre__icon">🎵</span>
+          <span class="card-genre__name">Music</span>
+          <span class="card-genre__count">Your Lie in April, Beck &amp; more</span>
+        </a>
+
+        <a href="anime.html?genre=psychological" class="card-genre" aria-label="Psychological anime">
+          <span class="card-genre__icon">🧠</span>
+          <span class="card-genre__name">Psychological</span>
+          <span class="card-genre__count">Death Note, Psycho-Pass &amp; more</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POPULAR THIS WEEK ===== -->
+  <section class="section-features" aria-labelledby="pop-genres-heading" style="padding:var(--section-pad-mobile);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">🔥 Trending</span>
+        <h2 id="pop-genres-heading">Popular <span class="accent">This Week</span></h2>
+        <p>Top watched genres among Indian fans right now.</p>
+      </div>
+      <div class="features-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+        <div class="card-feature">
+          <div class="card-feature__icon">⚔️</div>
+          <h3>#1 Action</h3>
+          <p>Demon Slayer S4 is dominating — watch it in Hindi &amp; English dub.</p>
+          <a href="anime.html?genre=action" class="btn-outline btn--small" style="margin-top:12px;">Browse Action</a>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">🔮</div>
+          <h3>#2 Fantasy</h3>
+          <p>Re:Zero S3 and Overlord S5 are fan favourites this season.</p>
+          <a href="anime.html?genre=fantasy" class="btn-outline btn--small" style="margin-top:12px;">Browse Fantasy</a>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">😂</div>
+          <h3>#3 Comedy</h3>
+          <p>Spy x Family continues to win hearts across India.</p>
+          <a href="anime.html?genre=comedy" class="btn-outline btn--small" style="margin-top:12px;">Browse Comedy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-main" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-main__inner">
+        <div class="footer-main__brand">
+          <a href="index.html" class="nav-main__logo" style="font-size:1.3rem;">
+            <span class="nav-main__logo-icon">🦁</span>
+            <span>Indian One Anime</span>
+          </a>
+          <p class="footer-tagline">India's Anime Streaming Hub</p>
+          <p class="footer-tagline hindi-text" style="margin-top:4px;">Har anime, ek jagah. 🇮🇳</p>
+        </div>
+        <div class="footer-main__links">
+          <nav class="footer-col" aria-label="Browse">
+            <h4>Browse</h4>
+            <ul>
+              <li><a href="anime.html">All Anime</a></li>
+              <li><a href="genres.html">Genres</a></li>
+              <li><a href="schedule.html">Schedule</a></li>
+              <li><a href="new-releases.html">New Releases</a></li>
+              <li><a href="watchlist.html">My Watchlist</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-col" aria-label="App">
+            <h4>Dubkami App</h4>
+            <ul>
+              <li><a href="dubkami.html">Download Free</a></li>
+              <li><a href="dubkami.html#features">Features</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-col" aria-label="Info">
+            <h4>Info</h4>
+            <ul>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="404.html">Report Issue</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="footer-main__bottom">
+      <div class="container">
+        <p>© 2024 Indian One Anime. All rights reserved.</p>
+        <p>Dubkami is the official streaming app of Indian One Anime.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== PWA INSTALL BANNER ===== -->
+  <div class="pwa-install-banner is-hidden" id="pwa-install-banner" role="dialog" aria-label="Install app">
+    <span style="font-size:2rem;">🦁</span>
+    <div class="pwa-install-banner__text">
+      <strong>Add to Home Screen</strong>
+      Install Indian One Anime for quick access
+    </div>
+    <button class="btn-primary btn--small" id="pwa-install-btn">Install</button>
+    <button class="pwa-install-banner__close" id="pwa-install-close" aria-label="Dismiss">✕</button>
+  </div>
+  <script src="app.js"></script>
+
+</body>
+</html>

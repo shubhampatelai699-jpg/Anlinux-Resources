@@ -3,33 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Page not found — Indian One Anime. Go back to the homepage and keep watching." />
-  <title>404 — Page Not Found | Indian One Anime</title>
+  <meta name="description" content="My Watchlist on Indian One Anime — save and manage your favourite anime titles." />
+  <title>My Watchlist — Indian One Anime</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://shubhampatelai699-jpg.github.io/Anlinux-Resources/404.html" />
-  <meta property="og:title" content="404 — Page Not Found | Indian One Anime" />
-  <meta property="og:description" content="Page not found — Indian One Anime. Go back to the homepage and keep watching your favourite anime." />
+  <meta property="og:title" content="My Watchlist — Indian One Anime" />
+  <meta property="og:description" content="Save and manage your anime watchlist on Indian One Anime." />
   <meta property="og:site_name" content="Indian One Anime" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="404 — Page Not Found | Indian One Anime" />
-  <meta name="twitter:description" content="This page doesn't exist — head back to Indian One Anime and keep watching." />
-
-  <!-- PWA -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#FFD700" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="IOAnime" />
-
-  <!-- Prevent theme flash -->
   <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('ioaTheme')||'dark')}catch(e){}</script>
 <body>
+
+  <!-- ===== NEW RELEASES STRIP ===== -->
+  <div class="banner-new-releases">
+    <div class="container">
+      <div class="banner-new-releases__inner">
+        <span class="badge" style="margin-bottom:0;flex-shrink:0;">🆕 New</span>
+        <div class="new-releases-scroll">
+          <a href="watch.html" class="new-release-chip">Demon Slayer S4</a>
+          <a href="watch.html" class="new-release-chip">Jujutsu Kaisen S3</a>
+          <a href="watch.html" class="new-release-chip">Solo Leveling</a>
+          <a href="watch.html" class="new-release-chip">Chainsaw Man S2</a>
+          <a href="watch.html" class="new-release-chip">Bleach TYBW</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="nav-main" aria-label="Main navigation">
@@ -39,13 +45,13 @@
           <span class="nav-main__logo-icon">🦁</span>
           <span>Indian One Anime</span>
         </a>
-                <div class="nav-main__links" id="nav-links">
+        <div class="nav-main__links" id="nav-links">
           <a href="index.html">Home</a>
           <a href="anime.html">Browse</a>
           <a href="schedule.html">Schedule</a>
           <a href="genres.html">Genres</a>
           <a href="new-releases.html">New</a>
-          <a href="watchlist.html">Watchlist <span class="watchlist-count" id="nav-watchlist-count"></span></a>
+          <a href="watchlist.html" style="color:var(--color-gold);">Watchlist <span class="watchlist-count" id="nav-watchlist-count"></span></a>
           <a href="dubkami.html">Dubkami</a>
         </div>
         <button class="nav-search-btn" id="search-open-btn" aria-label="Search anime">🔍</button>
@@ -55,76 +61,68 @@
     </div>
   </nav>
 
-  <!-- ===== 404 SECTION ===== -->
-  <section class="section-404" aria-labelledby="error-heading">
+  <!-- ===== WATCHLIST SECTION ===== -->
+  <section class="section-watchlist" aria-labelledby="watchlist-heading">
     <div class="container">
-      <div class="section-404__inner">
-        <span class="error-404__code accent">404</span>
-        <h1 class="error-404__title" id="error-heading">
-          Page <span class="accent">Not Found</span>
-        </h1>
-        <p>Looks like this page went on a training arc and never came back.</p>
-        <p class="hindi-text" style="font-size:0.9rem;color:var(--color-text-secondary);">
-          Yeh page nahi mila — shayad woh filhaal kisi aur dimension mein hai. 🦁
+
+      <div class="watchlist-hero">
+        <span class="badge">📋 My List</span>
+        <h1 id="watchlist-heading">My <span class="accent">Watchlist</span></h1>
+        <p>
+          <span id="watchlist-page-count">0</span> saved title<span id="watchlist-plural">s</span> —
+          your personal anime collection.
         </p>
-        <div class="error-404__actions">
-          <a href="index.html" class="btn-primary btn--large">Go Home</a>
-          <a href="anime.html" class="btn-outline btn--large">Browse Anime</a>
+        <div class="watchlist-stats" id="watchlist-stats-row">
+          <div class="watchlist-stat">
+            <span class="watchlist-stat__num" id="watchlist-total">0</span>
+            <span class="watchlist-stat__label">Saved</span>
+          </div>
+          <div class="watchlist-stat">
+            <span class="watchlist-stat__num accent">∞</span>
+            <span class="watchlist-stat__label">To Watch</span>
+          </div>
         </div>
-        <p style="color:var(--color-text-secondary);font-size:0.85rem;margin-top:4px;">
-          Found a broken link? <a href="contact.html" style="color:var(--color-gold);">Report it here →</a>
-        </p>
-        <span class="error-404__lion" aria-hidden="true">🦁</span>
       </div>
+
+      <!-- Container filled by app.js -->
+      <div id="watchlist-container" aria-live="polite">
+        <!-- Loading state -->
+        <div class="watchlist-empty">
+          <span class="watchlist-empty__icon">⏳</span>
+          <h2>Loading…</h2>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ===== SUGGESTIONS ===== -->
-  <section style="padding:var(--section-pad-mobile);background:var(--color-bg-surface);" aria-labelledby="suggestions-heading">
+  <!-- ===== DISCOVER MORE ===== -->
+  <section class="section-features" aria-labelledby="discover-heading" style="padding:var(--section-pad-mobile);">
     <div class="container">
       <div class="section-header">
-        <h2 id="suggestions-heading">Maybe You Were Looking For…</h2>
+        <span class="badge">🔍 Discover</span>
+        <h2 id="discover-heading">Find More <span class="accent">Anime</span></h2>
+        <p>Browse the full catalogue and add new titles to your list.</p>
       </div>
-      <div class="anime-grid">
-        <article class="card-anime">
-          <div class="card-anime__thumb">DS</div>
-          <div class="card-anime__body">
-            <h3>Demon Slayer</h3>
-            <p class="accent" style="font-size:0.8rem;">S4 • Ongoing</p>
-            <p>Tanjiro's quest continues against the demons threatening humanity.</p>
-            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
-          </div>
-        </article>
-        <article class="card-anime">
-          <div class="card-anime__thumb">JJK</div>
-          <div class="card-anime__body">
-            <h3>Jujutsu Kaisen</h3>
-            <p class="accent" style="font-size:0.8rem;">S3 • Ongoing</p>
-            <p>Yuji battles cursed spirits in the deadliest game yet.</p>
-            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
-          </div>
-        </article>
-        <article class="card-anime">
-          <div class="card-anime__thumb">OP</div>
-          <div class="card-anime__body">
-            <h3>One Piece</h3>
-            <p class="accent" style="font-size:0.8rem;">Egghead Arc • Ongoing</p>
-            <p>Luffy and crew face Dr. Vegapunk on Egghead Island.</p>
-            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
-          </div>
-        </article>
-        <article class="card-anime">
-          <div class="card-anime__thumb">SL</div>
-          <div class="card-anime__body">
-            <h3>Solo Leveling</h3>
-            <p class="accent" style="font-size:0.8rem;">S1 • Complete</p>
-            <p>The weakest hunter rises to become the world's strongest.</p>
-            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
-          </div>
-        </article>
-      </div>
-      <div style="text-align:center;margin-top:32px;">
-        <a href="anime.html" class="btn-outline">View All Anime →</a>
+      <div class="features-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+        <div class="card-feature">
+          <div class="card-feature__icon">📺</div>
+          <h3>Browse All</h3>
+          <p>1000+ anime titles across every genre — from classics to newest releases.</p>
+          <a href="anime.html" class="btn-primary btn--small" style="margin-top:12px;">Browse Anime</a>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">🎭</div>
+          <h3>By Genre</h3>
+          <p>Action, Fantasy, Romance, Thriller — pick your genre and explore.</p>
+          <a href="genres.html" class="btn-primary btn--small" style="margin-top:12px;">Browse Genres</a>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">📅</div>
+          <h3>Weekly Schedule</h3>
+          <p>Check what's airing today and plan your watching week in advance.</p>
+          <a href="schedule.html" class="btn-primary btn--small" style="margin-top:12px;">View Schedule</a>
+        </div>
       </div>
     </div>
   </section>
@@ -144,7 +142,7 @@
         <div class="footer-main__links">
           <nav class="footer-col" aria-label="Browse">
             <h4>Browse</h4>
-                      <ul>
+            <ul>
               <li><a href="anime.html">All Anime</a></li>
               <li><a href="genres.html">Genres</a></li>
               <li><a href="schedule.html">Schedule</a></li>
@@ -157,7 +155,6 @@
             <ul>
               <li><a href="dubkami.html">Download Free</a></li>
               <li><a href="dubkami.html#features">Features</a></li>
-              <li><a href="dubkami.html#screenshots">Screenshots</a></li>
             </ul>
           </nav>
           <nav class="footer-col" aria-label="Info">
@@ -178,7 +175,6 @@
     </div>
   </footer>
 
-
   <!-- ===== PWA INSTALL BANNER ===== -->
   <div class="pwa-install-banner is-hidden" id="pwa-install-banner" role="dialog" aria-label="Install app">
     <span style="font-size:2rem;">🦁</span>
@@ -190,6 +186,22 @@
     <button class="pwa-install-banner__close" id="pwa-install-close" aria-label="Dismiss">✕</button>
   </div>
   <script src="app.js"></script>
+
+  <script>
+    // Sync plural after app.js renders watchlist
+    (function syncPlural() {
+      try {
+        var list = JSON.parse(localStorage.getItem('ioaWatchlist') || '[]');
+        var n = list.length;
+        var countEl = document.getElementById('watchlist-page-count');
+        var totalEl = document.getElementById('watchlist-total');
+        var pluralEl = document.getElementById('watchlist-plural');
+        if (countEl) countEl.textContent = n;
+        if (totalEl) totalEl.textContent = n;
+        if (pluralEl) pluralEl.textContent = n === 1 ? '' : 's';
+      } catch (e) {}
+    }());
+  </script>
 
 </body>
 </html>
