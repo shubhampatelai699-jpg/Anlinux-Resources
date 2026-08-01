@@ -260,6 +260,33 @@ Explore Indian One Anime, a modern anime platform designed for fans to discover 
 
 यह structure brand को **premium, memorable और scalable** बनाता है। आगे चलकर आप इसी identity के अंदर additional features, community tools, watchlists, notifications और app services भी जोड़ सकते हैं, बिना main brand को बदलने की जरूरत पड़े।
 
+---
+
+## Entertainment Streaming Full Upgrade Scope
+
+To move from a simple promo experience to a complete entertainment streaming brand presence, build the website and app around the same content journey:
+
+### Website Upgrade Priorities
+
+- Landing page with hero banner, featured anime, trending rails, and category discovery
+- Dedicated anime detail pages with synopsis, language badges, episode status, and related recommendations
+- Search and filter experience for genre, language, and popularity-based browsing
+- Mobile-first layouts that keep the Dubkami app CTA visible throughout high-intent sections
+
+### Dubkami App Upgrade Priorities
+
+- Home experience matching the website sections for easy brand continuity
+- Featured, trending, and continue-exploring rows with clear poster-first navigation
+- Streamlined detail screens with episode access, highlights, and lightweight actions
+- Download and onboarding touchpoints focused on fast discovery and smooth entertainment browsing
+
+### Shared Experience Goals
+
+- Keep Indian One Anime as the primary website/platform identity
+- Keep Dubkami as the dedicated mobile app experience
+- Maintain one tone of voice across both products: premium, exciting, simple, and fan-focused
+- Roll out upgrades in phases so the brand can expand without confusing users
+
 **Final positioning:**
 
 > **Indian One Anime** is the platform.
