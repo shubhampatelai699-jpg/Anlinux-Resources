@@ -1,6 +1,0 @@
-#!/bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
-
-# Execute the MATE Desktop environment shell
-exec /usr/bin/mate-session
