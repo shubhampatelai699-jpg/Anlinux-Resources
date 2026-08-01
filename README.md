@@ -2,24 +2,36 @@ This is the place where all the images and scripts are stored. If you are lookin
 
 To open an issue, please visit [here](https://github.com/EXALAB/AnLinux-App/issues)
 
+## Bootstrapping System
 
+Note: Only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [BackBox](https://www.backbox.org) are bootstrapped using the script; others are official images without modification.
 
-## Bootstraping System
+Scripts located at `Scripts/Bootstrap` are used to bootstrap the system.
 
-Note: Only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [BackBox](https://www.backbox.org) are bootstrap using the script, others are official image without modification.
+You will need to install some packages first:
 
-Script located at Scripts/Bootstrap are used to bootstrap the system.
+```bash
+sudo apt-get install qemu-user-static debian-archive-keyring debootstrap
+```
 
-You will need to install some package first:
+Then go to [Bootstrap](https://github.com/EXALAB/AnLinux-Resources/tree/master/Scripts/Bootstrap) and download the `bootstrap.sh` script. (Follow any instructions in that directory before running the script.)
 
-> sudo apt-get install qemu-user-static debian-archive-keyring debootstrap
+To bootstrap a system, run:
 
-Then go to [Bootstrap](https://github.com/EXALAB/Anlinux-Resources/tree/master/Scripts/Bootstrap) and download the bootstrap.sh script. (It is important to follow instructions before running bootstrap.sh if there any.)
+```bash
+./bootstrap.sh <architecture> /path/to/bootstrap
+```
 
-To bootstrap a system, simply run:
+Example:
 
-> ./bootstrap.sh architecture /path/to/bootstrap
-   
-For example: 
+```bash
+./bootstrap.sh armhf /home/user/ubuntu/armhf
+```
 
-> ./bootstrap.sh armhf /home/user/ubuntu/armhf
+---
+
+## Dubkami
+
+**Dubkami** is an AI-powered dubbing and localization platform for Indian anime and video content. It automates the dubbing pipeline from upload through final export, supporting multiple languages with per-speaker voice synthesis.
+
+See the [Dubkami documentation](Dubkami/README.md) for the full master blueprint, execution schedule, and task board.
