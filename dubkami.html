@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-</head>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shubhampatelai699-jpg.github.io/Anlinux-Resources/dubkami.html" />
+  <meta property="og:title" content="Dubkami App — Indian One Anime" />
+  <meta property="og:description" content="Download Dubkami — the official Indian One Anime app. Watch dubbed anime in HD on your Android phone. Free download, no sign-up." />
+  <meta property="og:site_name" content="Indian One Anime" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dubkami App — Free Anime Streaming on Android" />
+  <meta name="twitter:description" content="Download Dubkami — watch Hindi &amp; English dubbed anime in HD on your phone." />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#FFD700" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="IOAnime" />
+
+  <!-- Prevent theme flash -->
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('ioaTheme')||'dark')}catch(e){}</script>
 <body>
 
   <!-- ===== NEW RELEASES STRIP ===== -->
@@ -49,6 +68,7 @@
           <a href="contact.html">Contact</a>
         </div>
         <a href="dubkami.html" class="btn-primary btn--small" style="display:none;" id="nav-cta">Get App</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">☀️</button>
         <button class="nav-main__toggle" aria-label="Open menu" aria-expanded="false" id="nav-toggle">☰</button>
       </div>
     </div>
@@ -161,30 +181,55 @@
       <div class="playstore-grid">
 
         <div class="playstore-card">
-          <h2>📱 Android App</h2>
-          <p style="margin-bottom:14px;">Available for all Android devices running Android 5.0 and above.</p>
+          <h2>📱 Android APK</h2>
+          <p style="margin-bottom:10px;">Available for all Android devices running Android 5.0+.</p>
+          <!-- APK meta row -->
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;padding:12px;background:var(--color-bg-dark);border-radius:var(--radius-card);">
+            <div>
+              <span style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);font-weight:700;display:block;">Version</span>
+              <strong>v2.1.0</strong>
+            </div>
+            <div>
+              <span style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);font-weight:700;display:block;">File Size</span>
+              <strong>12.4 MB</strong>
+            </div>
+            <div>
+              <span style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);font-weight:700;display:block;">Updated</span>
+              <strong>Jul 2024</strong>
+            </div>
+            <div>
+              <span style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-gold);font-weight:700;display:block;">Requires</span>
+              <strong>Android 5.0+</strong>
+            </div>
+          </div>
           <ul>
-            <li>Free download from our website</li>
-            <li>No Google account required</li>
-            <li>Enable "Install from unknown sources" to install the APK</li>
+            <li>Free download — no Google account required</li>
+            <li>Enable "Install from unknown sources" to install</li>
             <li>Auto-update notifications built in</li>
+            <li>Lightweight: only 12.4 MB download</li>
           </ul>
-          <a href="#" class="btn-primary" style="margin-top:18px;">⬇ Download APK</a>
+          <a href="#" class="btn-primary" style="margin-top:18px;display:inline-flex;align-items:center;gap:8px;">
+            ⬇ Download APK — v2.1.0 (12.4 MB)
+          </a>
         </div>
 
         <div class="playstore-card">
           <h2>🌐 Web Version</h2>
           <p style="margin-bottom:14px;">Prefer the browser? Our full site works on any device — no download needed.</p>
+          <!-- PWA badge -->
+          <div style="margin-bottom:14px;padding:10px 14px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:var(--radius-card);font-size:0.85rem;color:var(--color-success);">
+            ✅ <strong>PWA Ready</strong> — Add to your home screen for an app-like experience
+          </div>
           <ul>
             <li>All 1000+ anime titles available</li>
             <li>Same HD quality &amp; dubbed audio</li>
-            <li>Works on mobile browsers too</li>
+            <li>Works on all mobile browsers</li>
             <li>No installation required</li>
           </ul>
           <a href="anime.html" class="btn-outline" style="margin-top:18px;">Browse on Web →</a>
         </div>
 
-        <div class="playstore-card playstore-card--full" id="screenshots">
+        <div class="playstore-card playstore-card--full">
           <h2>✅ App Highlights</h2>
           <p style="margin-bottom:14px;">Everything that makes Dubkami the best anime app for Indian fans:</p>
           <ul style="columns:2;gap:24px;">
@@ -201,6 +246,171 @@
           </ul>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCREENSHOTS ===== -->
+  <section class="section-features" aria-labelledby="screenshots-heading" id="screenshots">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="screenshots-heading">App <span class="accent">Screenshots</span></h2>
+        <p>A clean, fast, mobile-first experience built for Indian anime fans.</p>
+      </div>
+      <div class="screenshots-gallery" role="list" aria-label="App screenshots">
+
+        <!-- Screenshot 1: Home -->
+        <div class="screenshot-frame" role="listitem">
+          <div class="phone-mockup" aria-label="Home screen">
+            <div class="phone-mockup__screen">
+              <div class="phone-mockup__logo">🦁 HOME</div>
+              <div class="phone-mockup__bar"></div>
+              <div class="phone-mockup__bar phone-mockup__bar--short"></div>
+              <div style="height:36px;background:linear-gradient(135deg,var(--color-gold),var(--color-gold-dark));border-radius:4px;margin:4px 0;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#111;font-weight:700;">▶ FEATURED</div>
+              <div class="phone-mockup__bar"></div>
+              <div class="phone-mockup__bar phone-mockup__bar--short"></div>
+            </div>
+            <div class="phone-mockup__thumb" aria-hidden="true">▶</div>
+          </div>
+          <p class="screenshot-frame__label">Home Feed</p>
+        </div>
+
+        <!-- Screenshot 2: Browse -->
+        <div class="screenshot-frame" role="listitem">
+          <div class="phone-mockup" aria-label="Browse screen">
+            <div class="phone-mockup__screen">
+              <div class="phone-mockup__logo">🔍 BROWSE</div>
+              <div style="height:20px;background:var(--color-bg-dark);border-radius:4px;margin-bottom:6px;display:flex;align-items:center;padding:0 6px;font-size:0.55rem;color:var(--color-text-secondary);">Search anime…</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+                <div style="height:28px;background:linear-gradient(135deg,var(--color-gold),var(--color-gold-dark));border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:#111;font-weight:700;">DS</div>
+                <div style="height:28px;background:linear-gradient(135deg,#C84B00,#8B2800);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:#fff;font-weight:700;">JJK</div>
+                <div style="height:28px;background:linear-gradient(135deg,#0044C8,#001A8B);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:#fff;font-weight:700;">OP</div>
+                <div style="height:28px;background:linear-gradient(135deg,#3A00C8,#1A008B);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:#fff;font-weight:700;">SL</div>
+              </div>
+            </div>
+            <div class="phone-mockup__thumb" aria-hidden="true">🔍</div>
+          </div>
+          <p class="screenshot-frame__label">Browse &amp; Search</p>
+        </div>
+
+        <!-- Screenshot 3: Watch -->
+        <div class="screenshot-frame" role="listitem">
+          <div class="phone-mockup" aria-label="Watch screen">
+            <div class="phone-mockup__screen">
+              <div class="phone-mockup__logo">▶ WATCH</div>
+              <div style="height:50px;background:#000;border-radius:4px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;color:var(--color-gold);font-size:1.4rem;">▶</div>
+              <div class="phone-mockup__bar phone-mockup__bar--short"></div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:18px;background:rgba(255,215,0,0.2);border:1px solid var(--color-gold);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.5rem;color:var(--color-gold);">P1</div>
+                <div style="flex:1;height:18px;background:var(--color-bg-dark);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.5rem;color:var(--color-text-secondary);">P2</div>
+                <div style="flex:1;height:18px;background:var(--color-bg-dark);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.5rem;color:var(--color-text-secondary);">P3</div>
+              </div>
+            </div>
+            <div class="phone-mockup__thumb" aria-hidden="true">▶</div>
+          </div>
+          <p class="screenshot-frame__label">Multi-Player</p>
+        </div>
+
+        <!-- Screenshot 4: Episode List -->
+        <div class="screenshot-frame" role="listitem">
+          <div class="phone-mockup" aria-label="Episode list screen">
+            <div class="phone-mockup__screen">
+              <div class="phone-mockup__logo">📋 EPISODES</div>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px;">
+                <div style="height:16px;background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.4);border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:0.5rem;color:var(--color-gold);">Ep 1 — Training Begins</div>
+                <div style="height:16px;background:var(--color-bg-dark);border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:0.5rem;color:var(--color-text-secondary);">Ep 2 — Water Hashira</div>
+                <div style="height:16px;background:var(--color-bg-dark);border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:0.5rem;color:var(--color-text-secondary);">Ep 3 — Stone Hashira</div>
+                <div style="height:16px;background:var(--color-bg-dark);border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:0.5rem;color:var(--color-text-secondary);">Ep 4 — Love Hashira</div>
+              </div>
+            </div>
+            <div class="phone-mockup__thumb" aria-hidden="true">📋</div>
+          </div>
+          <p class="screenshot-frame__label">Episode List</p>
+        </div>
+
+        <!-- Screenshot 5: New Releases -->
+        <div class="screenshot-frame" role="listitem">
+          <div class="phone-mockup" aria-label="New releases screen">
+            <div class="phone-mockup__screen">
+              <div class="phone-mockup__logo">🔥 NEW</div>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px;">
+                <div style="height:16px;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:0.5rem;color:var(--color-success);">🆕 DS S4 Ep 8 — Today</div>
+                <div style="height:16px;background:var(--color-bg-dark);border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:0.5rem;color:var(--color-text-secondary);">JJK S3 Ep 12 — Today</div>
+                <div style="height:16px;background:var(--color-bg-dark);border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:0.5rem;color:var(--color-text-secondary);">OP Ep 1110 — Today</div>
+                <div style="height:16px;background:var(--color-bg-dark);border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:0.5rem;color:var(--color-text-secondary);">Bleach Part 3 Ep 8</div>
+              </div>
+            </div>
+            <div class="phone-mockup__thumb" aria-hidden="true">🔥</div>
+          </div>
+          <p class="screenshot-frame__label">New Releases</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHANGELOG ===== -->
+  <section class="section-playstore" aria-labelledby="changelog-heading" style="background:var(--color-bg-dark);border-top:1px solid rgba(255,215,0,0.08);">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="changelog-heading">What's <span class="accent">New</span></h2>
+        <p>Latest updates and improvements to the Dubkami app.</p>
+      </div>
+      <div class="playstore-grid" style="grid-template-columns:1fr;">
+
+        <div class="playstore-card playstore-card--full">
+          <!-- v2.1.0 -->
+          <div style="margin-bottom:28px;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <span style="font-family:var(--font-heading);font-size:1.6rem;letter-spacing:0.04em;color:var(--color-gold);">v2.1.0</span>
+              <span class="badge badge--app" style="margin-bottom:0;">Latest</span>
+              <span style="color:var(--color-text-secondary);font-size:0.85rem;margin-left:auto;">July 2024</span>
+            </div>
+            <ul style="display:flex;flex-direction:column;gap:8px;">
+              <li>✨ <strong>New:</strong> Multi-player support — switch between Player 1, 2, 3 seamlessly</li>
+              <li>✨ <strong>New:</strong> Episode list sidebar with quick navigation</li>
+              <li>⚡ <strong>Improved:</strong> Faster app launch and smoother video loading</li>
+              <li>⚡ <strong>Improved:</strong> New Releases feed — episodes listed within minutes of release</li>
+              <li>🐛 <strong>Fixed:</strong> Video player crash on low-end Android devices</li>
+              <li>🐛 <strong>Fixed:</strong> Search results not updating when filter is changed</li>
+            </ul>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin-bottom:28px;" />
+
+          <!-- v2.0.0 -->
+          <div style="margin-bottom:28px;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <span style="font-family:var(--font-heading);font-size:1.6rem;letter-spacing:0.04em;">v2.0.0</span>
+              <span style="color:var(--color-text-secondary);font-size:0.85rem;margin-left:auto;">April 2024</span>
+            </div>
+            <ul style="display:flex;flex-direction:column;gap:8px;">
+              <li>🎉 <strong>Major:</strong> Full app redesign — cleaner UI, faster navigation</li>
+              <li>✨ <strong>New:</strong> Hindi dubbed audio support for all major titles</li>
+              <li>✨ <strong>New:</strong> Genre filter and search on the Browse screen</li>
+              <li>✨ <strong>New:</strong> New Releases page showing latest episodes</li>
+              <li>⚡ <strong>Improved:</strong> APK size reduced from 24 MB to 12.4 MB</li>
+              <li>⚡ <strong>Improved:</strong> Data-saving mode for mobile network users</li>
+            </ul>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin-bottom:28px;" />
+
+          <!-- v1.5.2 -->
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <span style="font-family:var(--font-heading);font-size:1.6rem;letter-spacing:0.04em;">v1.5.2</span>
+              <span style="color:var(--color-text-secondary);font-size:0.85rem;margin-left:auto;">January 2024</span>
+            </div>
+            <ul style="display:flex;flex-direction:column;gap:8px;">
+              <li>✨ <strong>New:</strong> Dark mode support</li>
+              <li>⚡ <strong>Improved:</strong> Buffering speed on 4G networks</li>
+              <li>🐛 <strong>Fixed:</strong> App crashes on Android 5 devices</li>
+              <li>🐛 <strong>Fixed:</strong> Next episode button not working in some cases</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -298,6 +508,18 @@
     setHeroLayout();
     window.addEventListener('resize', setHeroLayout);
   </script>
+
+  <!-- ===== PWA INSTALL BANNER ===== -->
+  <div class="pwa-install-banner is-hidden" id="pwa-install-banner" role="dialog" aria-label="Install app">
+    <span style="font-size:2rem;">🦁</span>
+    <div class="pwa-install-banner__text">
+      <strong>Add to Home Screen</strong>
+      Install Indian One Anime for quick access
+    </div>
+    <button class="btn-primary btn--small" id="pwa-install-btn">Install</button>
+    <button class="pwa-install-banner__close" id="pwa-install-close" aria-label="Dismiss">✕</button>
+  </div>
+  <script src="app.js"></script>
 
 </body>
 </html>

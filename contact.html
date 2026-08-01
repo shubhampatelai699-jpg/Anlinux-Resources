@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-</head>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shubhampatelai699-jpg.github.io/Anlinux-Resources/contact.html" />
+  <meta property="og:title" content="Contact — Indian One Anime" />
+  <meta property="og:description" content="Contact Indian One Anime — report an issue, suggest an anime, or get in touch with our team." />
+  <meta property="og:site_name" content="Indian One Anime" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Indian One Anime" />
+  <meta name="twitter:description" content="Get in touch with Indian One Anime — report issues, suggest anime, or send feedback." />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#FFD700" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="IOAnime" />
+
+  <!-- Prevent theme flash -->
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('ioaTheme')||'dark')}catch(e){}</script>
 <body>
 
   <!-- ===== NEW RELEASES STRIP ===== -->
@@ -49,6 +68,7 @@
           <a href="contact.html" style="color:var(--color-gold);">Contact</a>
         </div>
         <a href="dubkami.html" class="btn-primary btn--small" style="display:none;" id="nav-cta">Get App</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">☀️</button>
         <button class="nav-main__toggle" aria-label="Open menu" aria-expanded="false" id="nav-toggle">☰</button>
       </div>
     </div>
@@ -369,6 +389,18 @@
       document.getElementById(id).addEventListener('blur', validateForm);
     });
   </script>
+
+  <!-- ===== PWA INSTALL BANNER ===== -->
+  <div class="pwa-install-banner is-hidden" id="pwa-install-banner" role="dialog" aria-label="Install app">
+    <span style="font-size:2rem;">🦁</span>
+    <div class="pwa-install-banner__text">
+      <strong>Add to Home Screen</strong>
+      Install Indian One Anime for quick access
+    </div>
+    <button class="btn-primary btn--small" id="pwa-install-btn">Install</button>
+    <button class="pwa-install-banner__close" id="pwa-install-close" aria-label="Dismiss">✕</button>
+  </div>
+  <script src="app.js"></script>
 
 </body>
 </html>
