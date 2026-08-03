@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="New anime releases on Indian One Anime — latest episodes of Demon Slayer, Jujutsu Kaisen, One Piece and more. Hindi & English dubbed, HD quality." />
+  <title>New Releases — Indian One Anime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shubhampatelai699-jpg.github.io/Anlinux-Resources/new-releases.html" />
+  <meta property="og:title" content="New Releases — Indian One Anime" />
+  <meta property="og:description" content="Latest anime episodes — added fast, updated daily. Hindi &amp; English dubbed, HD quality on Indian One Anime." />
+  <meta property="og:site_name" content="Indian One Anime" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="New Releases — Indian One Anime" />
+  <meta name="twitter:description" content="Latest anime episodes added daily. Hindi &amp; English dubbed, HD quality." />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#FFD700" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="IOAnime" />
+
+  <!-- Prevent theme flash -->
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('ioaTheme')||'dark')}catch(e){}</script>
+<body>
+
+  <!-- ===== NEW RELEASES STRIP ===== -->
+  <div class="banner-new-releases">
+    <div class="container">
+      <div class="banner-new-releases__inner">
+        <span class="badge" style="margin-bottom:0;flex-shrink:0;">🆕 New</span>
+        <div class="new-releases-scroll">
+          <a href="watch.html" class="new-release-chip">Demon Slayer S4</a>
+          <a href="watch.html" class="new-release-chip">Jujutsu Kaisen S3</a>
+          <a href="watch.html" class="new-release-chip">One Piece</a>
+          <a href="watch.html" class="new-release-chip">Solo Leveling</a>
+          <a href="watch.html" class="new-release-chip">Bleach TYBW</a>
+          <a href="watch.html" class="new-release-chip">Naruto Shippuden</a>
+          <a href="watch.html" class="new-release-chip">Attack on Titan</a>
+          <a href="watch.html" class="new-release-chip">Dragon Ball Super</a>
+          <a href="watch.html" class="new-release-chip">Black Clover</a>
+          <a href="watch.html" class="new-release-chip">Hunter x Hunter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="nav-main" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-main__inner">
+        <a href="index.html" class="nav-main__logo" aria-label="Indian One Anime home">
+          <span class="nav-main__logo-icon">🦁</span>
+          <span>Indian One Anime</span>
+        </a>
+                <div class="nav-main__links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="anime.html">Browse</a>
+          <a href="schedule.html">Schedule</a>
+          <a href="genres.html">Genres</a>
+          <a href="new-releases.html" style="color:var(--color-gold);">New</a>
+          <a href="watchlist.html">Watchlist <span class="watchlist-count" id="nav-watchlist-count"></span></a>
+          <a href="dubkami.html">Dubkami</a>
+        </div>
+        <button class="nav-search-btn" id="search-open-btn" aria-label="Search anime">🔍</button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">☀️</button>
+        <button class="nav-main__toggle" aria-label="Open menu" aria-expanded="false" id="nav-toggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="section-anime-hero" aria-labelledby="new-releases-heading">
+    <div class="container">
+      <span class="badge">🔥 Just Dropped</span>
+      <h1 class="section-anime-hero__heading" id="new-releases-heading">
+        New <span class="accent">Releases</span>
+      </h1>
+      <p class="section-anime-hero__sub">Latest episodes — added fast, updated daily</p>
+      <p class="section-anime-hero__hinglish hindi-text">
+        Nayi episodes aate hi yahan milti hain — Hindi aur English dubbed, HD quality mein. Kuch bhi miss mat karo.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== THIS WEEK ===== -->
+  <section class="section-anime-browser" aria-labelledby="this-week-heading">
+    <div class="container">
+
+      <!-- Week filter tabs -->
+      <div class="player-tabs" style="flex-wrap:wrap;margin-bottom:28px;" role="tablist" aria-label="Filter by time" id="time-tabs">
+        <button class="player-tabs__btn is-active" data-time="week" role="tab" aria-selected="true">This Week</button>
+        <button class="player-tabs__btn" data-time="month" role="tab" aria-selected="false">This Month</button>
+        <button class="player-tabs__btn" data-time="all" role="tab" aria-selected="false">All Time</button>
+      </div>
+
+      <h2 id="this-week-heading" style="font-family:var(--font-heading);font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:0.04em;margin-bottom:20px;">
+        This Week's <span class="accent">Drops</span>
+      </h2>
+
+      <!-- Featured release -->
+      <div class="playstore-card playstore-card--full" style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;" aria-label="Featured new release">
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+          <div style="width:80px;height:80px;background:linear-gradient(135deg,var(--color-gold),var(--color-gold-dark));border-radius:var(--radius-card);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.4rem;color:#111;flex-shrink:0;">DS</div>
+          <div style="flex:1;min-width:160px;">
+            <span class="badge badge--app" style="margin-bottom:6px;">🔥 Featured Drop</span>
+            <h3 style="font-family:var(--font-heading);font-size:1.8rem;letter-spacing:0.04em;">Demon Slayer — S4 Ep 8</h3>
+            <p style="color:var(--color-text-secondary);font-size:0.9rem;">Infinity Castle Beckons • Added today • Hindi + English</p>
+          </div>
+          <a href="watch.html" class="btn-primary">Watch Now</a>
+        </div>
+        <p style="color:var(--color-text-secondary);font-size:0.9rem;">
+          The final episode of the Hashira Training arc delivers jaw-dropping action as Tanjiro and the Demon Slayer Corps prepare to enter the Infinity Castle for the ultimate showdown with Muzan Kibutsuji.
+        </p>
+      </div>
+
+      <!-- Release grid -->
+      <div class="anime-grid" id="new-releases-grid">
+
+        <article class="card-anime">
+          <div class="card-anime__thumb" style="position:relative;">
+            JJK
+            <span style="position:absolute;top:8px;right:8px;background:var(--color-success);color:#000;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:var(--radius-pill);">NEW</span>
+          </div>
+          <div class="card-anime__body">
+            <h3>Jujutsu Kaisen</h3>
+            <p class="accent" style="font-size:0.8rem;">S3 Ep 12 • Added today</p>
+            <p>Yuji faces Sukuna in the most intense battle of the Culling Game.</p>
+            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
+          </div>
+        </article>
+
+        <article class="card-anime">
+          <div class="card-anime__thumb" style="position:relative;">
+            OP
+            <span style="position:absolute;top:8px;right:8px;background:var(--color-success);color:#000;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:var(--radius-pill);">NEW</span>
+          </div>
+          <div class="card-anime__body">
+            <h3>One Piece</h3>
+            <p class="accent" style="font-size:0.8rem;">Ep 1110 • Added today</p>
+            <p>The Straw Hats push their limits against the Iron Giant on Egghead Island.</p>
+            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
+          </div>
+        </article>
+
+        <article class="card-anime">
+          <div class="card-anime__thumb" style="position:relative;">
+            BL
+            <span style="position:absolute;top:8px;right:8px;background:rgba(255,215,0,0.9);color:#000;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:var(--radius-pill);">HOT</span>
+          </div>
+          <div class="card-anime__body">
+            <h3>Bleach: TYBW</h3>
+            <p class="accent" style="font-size:0.8rem;">Part 3 Ep 8 • Yesterday</p>
+            <p>Ichigo's final Bankai form is revealed in an earth-shattering battle.</p>
+            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
+          </div>
+        </article>
+
+        <article class="card-anime">
+          <div class="card-anime__thumb">MHA</div>
+          <div class="card-anime__body">
+            <h3>My Hero Academia</h3>
+            <p class="accent" style="font-size:0.8rem;">S7 Ep 20 • 2 days ago</p>
+            <p>Deku pushes his quirk to 120% in a desperate bid to stop All For One.</p>
+            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
+          </div>
+        </article>
+
+        <article class="card-anime">
+          <div class="card-anime__thumb">MZ</div>
+          <div class="card-anime__body">
+            <h3>Mushoku Tensei</h3>
+            <p class="accent" style="font-size:0.8rem;">S2 Ep 16 • 3 days ago</p>
+            <p>Rudeus faces his most dangerous foe yet as the Laplace Factor activates.</p>
+            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
+          </div>
+        </article>
+
+        <article class="card-anime">
+          <div class="card-anime__thumb">DK</div>
+          <div class="card-anime__body">
+            <h3>Konosuba S3</h3>
+            <p class="accent" style="font-size:0.8rem;">Ep 10 • 3 days ago</p>
+            <p>Kazuma and Darkness find themselves in yet another ridiculous predicament.</p>
+            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
+          </div>
+        </article>
+
+        <article class="card-anime">
+          <div class="card-anime__thumb">SL</div>
+          <div class="card-anime__body">
+            <h3>Solo Leveling S2</h3>
+            <p class="accent" style="font-size:0.8rem;">Ep 5 • 4 days ago</p>
+            <p>Sung Jin-Woo's shadow army grows as he confronts a god-tier threat.</p>
+            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
+          </div>
+        </article>
+
+        <article class="card-anime">
+          <div class="card-anime__thumb">VN</div>
+          <div class="card-anime__body">
+            <h3>Vinland Saga S3</h3>
+            <p class="accent" style="font-size:0.8rem;">Ep 3 • 5 days ago</p>
+            <p>Thorfinn's journey continues toward the new world and true freedom.</p>
+            <a href="watch.html" class="btn-primary btn--small">Watch Now</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="text-align:center;margin-top:40px;">
+        <a href="anime.html" class="btn-outline">View Full Catalogue →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMING SOON ===== -->
+  <section style="padding:var(--section-pad-mobile);background:var(--color-bg-dark);border-top:1px solid rgba(255,215,0,0.08);" aria-labelledby="coming-soon-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="coming-soon-heading">Coming <span class="accent">Soon</span></h2>
+        <p>Episodes dropping this week — stay tuned.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:14px;" id="coming-soon-grid">
+
+        <div class="playstore-card" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--color-gold),var(--color-gold-dark));border-radius:var(--radius-card);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1rem;color:#111;flex-shrink:0;">CS</div>
+          <div style="flex:1;">
+            <strong style="display:block;font-family:var(--font-heading);font-size:1.2rem;letter-spacing:0.04em;">Chainsaw Man S2</strong>
+            <span style="color:var(--color-text-secondary);font-size:0.85rem;">Episode 1 — Dropping in 2 days</span>
+          </div>
+          <span class="badge" style="margin-bottom:0;flex-shrink:0;">🔔 Soon</span>
+        </div>
+
+        <div class="playstore-card" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--color-gold),var(--color-gold-dark));border-radius:var(--radius-card);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1rem;color:#111;flex-shrink:0;">FT</div>
+          <div style="flex:1;">
+            <strong style="display:block;font-family:var(--font-heading);font-size:1.2rem;letter-spacing:0.04em;">Fairy Tail: 100 Years Quest</strong>
+            <span style="color:var(--color-text-secondary);font-size:0.85rem;">Episode 6 — Dropping in 3 days</span>
+          </div>
+          <span class="badge" style="margin-bottom:0;flex-shrink:0;">🔔 Soon</span>
+        </div>
+
+        <div class="playstore-card" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--color-gold),var(--color-gold-dark));border-radius:var(--radius-card);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1rem;color:#111;flex-shrink:0;">NS</div>
+          <div style="flex:1;">
+            <strong style="display:block;font-family:var(--font-heading);font-size:1.2rem;letter-spacing:0.04em;">Naruto — Special Dub Batch</strong>
+            <span style="color:var(--color-text-secondary);font-size:0.85rem;">Episodes 1–50 Hindi Dub remaster — This weekend</span>
+          </div>
+          <span class="badge" style="margin-bottom:0;flex-shrink:0;">🔔 Soon</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section-cta" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="section-cta__inner">
+        <span class="badge">📱 Never Miss an Episode</span>
+        <h2 id="cta-heading">Get the <span class="accent">Dubkami App</span></h2>
+        <p>Get notified the moment new episodes drop — download the app for free.</p>
+        <a href="dubkami.html" class="btn-primary btn--large">⬇ Download Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-main" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-main__inner">
+        <div class="footer-main__brand">
+          <a href="index.html" class="nav-main__logo" style="font-size:1.3rem;">
+            <span class="nav-main__logo-icon">🦁</span>
+            <span>Indian One Anime</span>
+          </a>
+          <p class="footer-tagline">India's Anime Streaming Hub</p>
+          <p class="footer-tagline hindi-text" style="margin-top:4px;">Har anime, ek jagah. 🇮🇳</p>
+        </div>
+        <div class="footer-main__links">
+          <nav class="footer-col" aria-label="Browse">
+            <h4>Browse</h4>
+                      <ul>
+              <li><a href="anime.html">All Anime</a></li>
+              <li><a href="genres.html">Genres</a></li>
+              <li><a href="schedule.html">Schedule</a></li>
+              <li><a href="new-releases.html">New Releases</a></li>
+              <li><a href="watchlist.html">My Watchlist</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-col" aria-label="App">
+            <h4>Dubkami App</h4>
+            <ul>
+              <li><a href="dubkami.html">Download Free</a></li>
+              <li><a href="dubkami.html#features">Features</a></li>
+              <li><a href="dubkami.html#screenshots">Screenshots</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-col" aria-label="Info">
+            <h4>Info</h4>
+            <ul>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="404.html">Report Issue</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="footer-main__bottom">
+      <div class="container">
+        <p>© 2024 Indian One Anime. All rights reserved.</p>
+        <p>Dubkami is the official streaming app of Indian One Anime.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Time filter tabs (visual only — content would be swapped via JS/API in production)
+    const timeTabs = document.getElementById('time-tabs');
+    timeTabs.addEventListener('click', function (e) {
+      const btn = e.target.closest('.player-tabs__btn');
+      if (!btn) return;
+      timeTabs.querySelectorAll('.player-tabs__btn').forEach(function (b) {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected', 'true');
+    });
+  </script>
+
+  <!-- ===== PWA INSTALL BANNER ===== -->
+  <div class="pwa-install-banner is-hidden" id="pwa-install-banner" role="dialog" aria-label="Install app">
+    <span style="font-size:2rem;">🦁</span>
+    <div class="pwa-install-banner__text">
+      <strong>Add to Home Screen</strong>
+      Install Indian One Anime for quick access
+    </div>
+    <button class="btn-primary btn--small" id="pwa-install-btn">Install</button>
+    <button class="pwa-install-banner__close" id="pwa-install-close" aria-label="Dismiss">✕</button>
+  </div>
+  <script src="app.js"></script>
+
+</body>
+</html>

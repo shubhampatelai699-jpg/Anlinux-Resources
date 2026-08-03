@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Indian One Anime — India's premier anime streaming hub. Watch full dubbed and subbed episodes in HD quality on any device." />
+  <title>Indian One Anime — India's Anime Streaming Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shubhampatelai699-jpg.github.io/Anlinux-Resources/" />
+  <meta property="og:title" content="Indian One Anime — India's Anime Streaming Hub" />
+  <meta property="og:description" content="Watch 1000+ anime in Hindi &amp; English dubbed, HD quality. Free streaming, no sign-up. India's #1 anime platform." />
+  <meta property="og:site_name" content="Indian One Anime" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Indian One Anime — India's Anime Streaming Hub" />
+  <meta name="twitter:description" content="Watch 1000+ anime in Hindi &amp; English dubbed, HD quality. Free streaming, no sign-up." />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#FFD700" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="IOAnime" />
+
+  <!-- Prevent theme flash -->
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('ioaTheme')||'dark')}catch(e){}</script>
+<body>
+
+  <!-- ===== NEW RELEASES STRIP ===== -->
+  <div class="banner-new-releases">
+    <div class="container">
+      <div class="banner-new-releases__inner">
+        <span class="badge" style="margin-bottom:0;flex-shrink:0;">🆕 New</span>
+        <div class="new-releases-scroll">
+          <a href="#" class="new-release-chip">Demon Slayer S4</a>
+          <a href="#" class="new-release-chip">Jujutsu Kaisen S3</a>
+          <a href="#" class="new-release-chip">One Piece</a>
+          <a href="#" class="new-release-chip">Solo Leveling</a>
+          <a href="#" class="new-release-chip">Bleach TYBW</a>
+          <a href="#" class="new-release-chip">Naruto Shippuden</a>
+          <a href="#" class="new-release-chip">Attack on Titan</a>
+          <a href="#" class="new-release-chip">Dragon Ball Super</a>
+          <a href="#" class="new-release-chip">Black Clover</a>
+          <a href="#" class="new-release-chip">Hunter x Hunter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="nav-main" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-main__inner">
+        <a href="index.html" class="nav-main__logo" aria-label="Indian One Anime home">
+          <span class="nav-main__logo-icon">🦁</span>
+          <span>Indian One Anime</span>
+        </a>
+                <div class="nav-main__links" id="nav-links">
+          <a href="index.html" style="color:var(--color-gold);">Home</a>
+          <a href="anime.html">Browse</a>
+          <a href="schedule.html">Schedule</a>
+          <a href="genres.html">Genres</a>
+          <a href="new-releases.html">New</a>
+          <a href="watchlist.html">Watchlist <span class="watchlist-count" id="nav-watchlist-count"></span></a>
+          <a href="dubkami.html">Dubkami</a>
+        </div>
+        <button class="nav-search-btn" id="search-open-btn" aria-label="Search anime">🔍</button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">☀️</button>
+        <button class="nav-main__toggle" aria-label="Open menu" aria-expanded="false" id="nav-toggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PROMO BANNER ===== -->
+  <div class="banner-promo" role="marquee" aria-label="Promotional banner">
+    <div class="banner-promo__inner">
+      <span>🔥 HD Streaming</span>
+      <span class="divider">|</span>
+      <span>Multi-Player Support</span>
+      <span class="divider">|</span>
+      <span>Hindi &amp; English Dubbed</span>
+      <span class="divider">|</span>
+      <span>📱 Dubkami App — Free Download</span>
+      <span class="divider">|</span>
+      <span>1000+ Anime Titles</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="section-hero" aria-labelledby="hero-heading">
+    <div class="section-hero__bg-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-hero__content">
+        <span class="badge">🦁 India's #1 Anime Platform</span>
+        <h1 class="section-hero__heading" id="hero-heading">
+          One Platform.<br /><span class="accent">Endless Anime.</span>
+        </h1>
+        <p class="section-hero__sub">India's Anime Streaming Hub</p>
+        <p class="section-hero__hinglish hindi-text">
+          Apne favourite anime ko Hindi aur English dubbed mein watch karo — HD quality, smooth streaming, aur multi-player support ke saath. Kabhi bhi, kahin bhi.
+        </p>
+        <div class="section-hero__cta">
+          <a href="anime.html" class="btn-primary btn--large">Browse Anime</a>
+          <a href="dubkami.html" class="btn-outline btn--large">📱 Get Dubkami App</a>
+        </div>
+      </div>
+    </div>
+    <span class="section-hero__scroll-hint" aria-hidden="true">⌄</span>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section-features" aria-labelledby="features-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="features-heading">Why <span class="accent">Indian One Anime?</span></h2>
+        <p>Everything an Indian anime fan needs — in one place.</p>
+      </div>
+      <div class="features-grid">
+        <div class="card-feature">
+          <div class="card-feature__icon">🎬</div>
+          <h3>HD Quality Streaming</h3>
+          <p>Watch full episodes in ultra HD with smooth playback, fast loading, and no buffering interruptions.</p>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">🎙️</div>
+          <h3>Hindi &amp; English Dubbed</h3>
+          <p>Enjoy your favourite anime in Hindi and English dubbed audio, made for Indian fans.</p>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">📺</div>
+          <h3>Multi-Player Support</h3>
+          <p>Switch between multiple video players seamlessly so you always get the best viewing experience.</p>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">📱</div>
+          <h3>Dubkami Mobile App</h3>
+          <p>Stream anime anywhere with the Dubkami app — clean design, fast loading, and a premium mobile experience.</p>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">🔍</div>
+          <h3>Smart Anime Browser</h3>
+          <p>Search, filter by genre, status, and season to find exactly the anime you want to watch right now.</p>
+        </div>
+        <div class="card-feature">
+          <div class="card-feature__icon">⚡</div>
+          <h3>Always Updated</h3>
+          <p>New episodes added fast. Stay up-to-date with the latest releases from all the popular anime series.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section-about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section-about__inner">
+        <div class="section-about__text">
+          <span class="badge">About Us</span>
+          <h2 id="about-heading">Your Indian<br /><span class="accent">Anime Universe</span></h2>
+          <p>
+            Indian One Anime is built for anime fans across India who want a premium streaming experience in their own language. We bring you full episodes, HD quality, and the fastest new-release updates — all on one platform.
+          </p>
+          <p>
+            From action-packed shonen to heartfelt slice-of-life, from classic series to the latest seasonal hits — find it all here. Our platform is optimised for Indian internet conditions so you get smooth playback every time.
+          </p>
+          <p class="hindi-text" style="font-size:0.9rem;color:var(--color-text-secondary);">
+            India ke har anime fan ke liye — ek jagah, anginat anime. 🦁
+          </p>
+          <a href="anime.html" class="btn-primary" style="margin-top:16px;">Explore All Anime</a>
+        </div>
+        <div class="section-about__visual">
+          <div class="about-lion">
+            <span class="lion-icon">🦁</span>
+            <div class="lion-glow" aria-hidden="true"></div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-item__number accent">1000+</span>
+              <span class="stat-item__label">Anime Titles</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-item__number accent">50K+</span>
+              <span class="stat-item__label">Active Fans</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-item__number accent">HD</span>
+              <span class="stat-item__label">Quality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DUBKAMI APP ===== -->
+  <section class="section-dubkami" aria-labelledby="dubkami-heading">
+    <div class="container">
+      <div class="section-dubkami__inner">
+        <div class="section-dubkami__text">
+          <span class="badge badge--app">📱 Mobile App</span>
+          <h2 id="dubkami-heading">Dubkami —<br /><span class="accent">Dubbed Anime in Your Pocket</span></h2>
+          <p>
+            Dubkami is the official app of Indian One Anime, built for fans who want a smooth, fast, and beautiful anime streaming experience on mobile.
+          </p>
+          <p class="hindi-text" style="font-size:0.9rem;color:var(--color-text-secondary);">
+            Apne phone mein puri duniya ka anime — Hindi aur English dubbed, HD quality ke saath.
+          </p>
+          <ul class="dubkami-features">
+            <li>✅ Watch More. Stream Better.</li>
+            <li>✅ Dubbed Anime, Simplified</li>
+            <li>✅ Your Anime, Your Language</li>
+            <li>✅ Anime Entertainment Without Limits</li>
+            <li>✅ Fast, clean, and distraction-free UI</li>
+            <li>✅ Offline-friendly &amp; data-optimised</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+            <a href="dubkami.html" class="btn-primary">Download Free</a>
+            <a href="dubkami.html" class="btn-outline">Learn More</a>
+          </div>
+        </div>
+        <div class="section-dubkami__mockup">
+          <div class="phone-mockup" aria-label="Dubkami app preview">
+            <div class="phone-mockup__screen">
+              <div class="phone-mockup__logo">DUBKAMI</div>
+              <div class="phone-mockup__bar"></div>
+              <div class="phone-mockup__bar phone-mockup__bar--short"></div>
+              <div class="phone-mockup__bar"></div>
+              <div class="phone-mockup__bar phone-mockup__bar--short"></div>
+              <div class="phone-mockup__bar"></div>
+            </div>
+            <div class="phone-mockup__thumb" aria-hidden="true">▶</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANIME PREVIEW GRID ===== -->
+  <section class="section-anime-browser" aria-labelledby="anime-browser-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="anime-browser-heading">Popular <span class="accent">Anime</span></h2>
+        <p>Trending titles on Indian One Anime right now.</p>
+      </div>
+      <div class="anime-grid">
+        <article class="card-anime">
+          <div class="card-anime__thumb">DS</div>
+          <div class="card-anime__body">
+            <h3>Demon Slayer</h3>
+            <p class="accent" style="font-size:0.8rem;">S4 • Ongoing</p>
+            <p>Tanjiro continues his quest to save his sister and defeat the demon lord.</p>
+            <a href="watch.html" class="btn-primary btn--small" style="margin-top:6px;">Watch Now</a>
+          </div>
+        </article>
+        <article class="card-anime">
+          <div class="card-anime__thumb">JJK</div>
+          <div class="card-anime__body">
+            <h3>Jujutsu Kaisen</h3>
+            <p class="accent" style="font-size:0.8rem;">S3 • Ongoing</p>
+            <p>Yuji Itadori battles the most powerful cursed spirits in the Culling Game.</p>
+            <a href="watch.html" class="btn-primary btn--small" style="margin-top:6px;">Watch Now</a>
+          </div>
+        </article>
+        <article class="card-anime">
+          <div class="card-anime__thumb">OP</div>
+          <div class="card-anime__body">
+            <h3>One Piece</h3>
+            <p class="accent" style="font-size:0.8rem;">Egghead Arc • Ongoing</p>
+            <p>Luffy and the Straw Hats face the genius scientist Dr. Vegapunk on Egghead Island.</p>
+            <a href="watch.html" class="btn-primary btn--small" style="margin-top:6px;">Watch Now</a>
+          </div>
+        </article>
+        <article class="card-anime">
+          <div class="card-anime__thumb">SL</div>
+          <div class="card-anime__body">
+            <h3>Solo Leveling</h3>
+            <p class="accent" style="font-size:0.8rem;">S1 • Complete</p>
+            <p>The weakest hunter rises to become the strongest after a life-changing dungeon encounter.</p>
+            <a href="watch.html" class="btn-primary btn--small" style="margin-top:6px;">Watch Now</a>
+          </div>
+        </article>
+      </div>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="anime.html" class="btn-outline">View All Anime →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="section-cta" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="section-cta__inner">
+        <span class="badge">🦁 Start Watching</span>
+        <h2 id="cta-heading">Stream Anime <span class="accent">Anytime, Anywhere</span></h2>
+        <p>All your favourite anime, one platform. Free access, no sign-up required.</p>
+        <p class="hindi-text" style="font-size:0.9rem;color:var(--color-text-secondary);">
+          Abhi shuru karo — koi sign-up nahi, koi wait nahi. 🚀
+        </p>
+        <a href="anime.html" class="btn-primary btn--large">Watch Free Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-main" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-main__inner">
+        <div class="footer-main__brand">
+          <a href="index.html" class="nav-main__logo" style="font-size:1.3rem;">
+            <span class="nav-main__logo-icon">🦁</span>
+            <span>Indian One Anime</span>
+          </a>
+          <p class="footer-tagline">India's Anime Streaming Hub</p>
+          <p class="footer-tagline hindi-text" style="margin-top:4px;">Har anime, ek jagah. 🇮🇳</p>
+        </div>
+        <div class="footer-main__links">
+          <nav class="footer-col" aria-label="Browse">
+            <h4>Browse</h4>
+                      <ul>
+              <li><a href="anime.html">All Anime</a></li>
+              <li><a href="genres.html">Genres</a></li>
+              <li><a href="schedule.html">Schedule</a></li>
+              <li><a href="new-releases.html">New Releases</a></li>
+              <li><a href="watchlist.html">My Watchlist</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-col" aria-label="App">
+            <h4>Dubkami App</h4>
+            <ul>
+              <li><a href="dubkami.html">Download Free</a></li>
+              <li><a href="dubkami.html#features">Features</a></li>
+              <li><a href="dubkami.html#screenshots">Screenshots</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-col" aria-label="Info">
+            <h4>Info</h4>
+            <ul>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="404.html">Report Issue</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="footer-main__bottom">
+      <div class="container">
+        <p>© 2024 Indian One Anime. All rights reserved.</p>
+        <p>Dubkami is the official streaming app of Indian One Anime.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===== PWA INSTALL BANNER ===== -->
+  <div class="pwa-install-banner is-hidden" id="pwa-install-banner" role="dialog" aria-label="Install app">
+    <span style="font-size:2rem;">🦁</span>
+    <div class="pwa-install-banner__text">
+      <strong>Add to Home Screen</strong>
+      Install Indian One Anime for quick access
+    </div>
+    <button class="btn-primary btn--small" id="pwa-install-btn">Install</button>
+    <button class="pwa-install-banner__close" id="pwa-install-close" aria-label="Dismiss">✕</button>
+  </div>
+  <script src="app.js"></script>
+
+</body>
+</html>
