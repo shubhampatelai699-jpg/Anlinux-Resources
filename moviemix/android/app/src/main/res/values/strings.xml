@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MovieMix</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="library">Library</string>
+    <string name="profile">Profile</string>
+    <string name="watch_now">Watch Now</string>
+    <string name="add_to_watchlist">Add to Watchlist</string>
+</resources>
