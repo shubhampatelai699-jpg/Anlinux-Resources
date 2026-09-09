@@ -2,10 +2,11 @@ import { useLocalSearchParams } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { useEffect } from 'react';
+import { supabase } from '@/src/lib/supabase';
 import { tokens } from '@/src/theme/tokens';
 
 export default function PlayerScreen() {
-  const { contentId } = useLocalSearchParams<{ contentId: string }>();
+  const { contentId, episodeId } = useLocalSearchParams<{ contentId: string; episodeId?: string }>();
 
   const player = useVideoPlayer(
     'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
@@ -16,12 +17,18 @@ export default function PlayerScreen() {
   );
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // 10s heartbeat placeholder
-      console.log('heartbeat', contentId, player.currentTime);
+    const interval = setInterval(async () => {
+      await supabase.functions.invoke('heartbeat', {
+        body: {
+          movieId: episodeId ? undefined : contentId,
+          episodeId,
+          positionSeconds: Math.floor(player.currentTime ?? 0),
+          completed: false,
+        },
+      });
     }, 10000);
     return () => clearInterval(interval);
-  }, [contentId, player]);
+  }, [contentId, episodeId, player]);
 
   return (
     <View style={styles.container}>

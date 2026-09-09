@@ -1,18 +1,26 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { useQuery } from '@tanstack/react-query';
 import { MovieCard } from '@/src/components/MovieCard';
+import { fetchWatchlist } from '@/src/lib/api';
 import { tokens } from '@/src/theme/tokens';
 
-const items = Array.from({ length: 12 }, (_, i) => ({ id: `mylist-${i}` }));
-
 export default function MyListScreen() {
+  const { data, isLoading } = useQuery({ queryKey: ['watchlist'], queryFn: fetchWatchlist });
+  const items = (data ?? []).map((item: any) => ({
+    id: item.movie_id ?? item.series_id,
+    title: item.movies?.title ?? item.series?.title ?? '',
+    poster_url: item.movies?.poster_url ?? item.series?.poster_url ?? null,
+  }));
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>My List</Text>
+      {isLoading ? <Text style={styles.empty}>Loading…</Text> : null}
       <FlatList
         data={items}
         numColumns={2}
         keyExtractor={(item) => item.id}
-        renderItem={() => <MovieCard />}
+        renderItem={({ item }) => <MovieCard title={item.title} posterUrl={item.poster_url} />}
         contentContainerStyle={styles.grid}
       />
     </View>

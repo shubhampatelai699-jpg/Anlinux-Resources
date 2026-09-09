@@ -1,6 +1,8 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { MovieCard } from '@/src/components/MovieCard';
+import { fetchMovies } from '@/src/lib/api';
 import { tokens } from '@/src/theme/tokens';
 
 type Window = '24h' | '7d' | '30d';
@@ -9,7 +11,8 @@ const chips: Window[] = ['24h', '7d', '30d'];
 
 export default function TrendingScreen() {
   const [window, setWindow] = useState<Window>('24h');
-  const items = Array.from({ length: 20 }, (_, i) => ({ id: `${window}-${i}`, rank: i + 1 }));
+  const { data: movies } = useQuery({ queryKey: ['trending', window], queryFn: () => fetchMovies(20) });
+  const items = (movies ?? []).map((m, i) => ({ ...m, rank: i + 1 }));
 
   return (
     <View style={styles.container}>
@@ -31,7 +34,7 @@ export default function TrendingScreen() {
         renderItem={({ item }) => (
           <View style={styles.row}>
             <Text style={styles.rank}>{item.rank}</Text>
-            <MovieCard />
+            <MovieCard compact title={item.title} posterUrl={item.poster_url} />
           </View>
         )}
         contentContainerStyle={styles.list}

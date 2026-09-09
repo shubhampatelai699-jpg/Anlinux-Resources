@@ -2,18 +2,20 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { MovieCard } from './MovieCard';
 import { tokens } from '@/src/theme/tokens';
 
-export function HorizontalRail({ title, queryKey }: { title: string; queryKey: string }) {
-  const items = Array.from({ length: 12 }, (_, i) => ({ id: `${queryKey}-${i}` }));
+export type RailItem = { id: string; title: string; poster_url: string | null };
+
+export function HorizontalRail({ title, items }: { title: string; items?: RailItem[] }) {
+  const data = items?.length ? items : Array.from({ length: 6 }, (_, i) => ({ id: `placeholder-${i}`, title: '', poster_url: null }));
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <FlatList
-        data={items}
+        data={data}
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
-        renderItem={() => <MovieCard compact />}
+        renderItem={({ item }) => <MovieCard compact title={item.title} posterUrl={item.poster_url} />}
         contentContainerStyle={styles.list}
       />
     </View>

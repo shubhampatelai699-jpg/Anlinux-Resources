@@ -1,16 +1,35 @@
 import { useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useQuery } from '@tanstack/react-query';
 import { MovieCard } from '@/src/components/MovieCard';
+import { supabase } from '@/src/lib/supabase';
 import { tokens } from '@/src/theme/tokens';
 
 const tabs = ['All', 'Movies', 'Series', 'People'] as const;
 type Tab = (typeof tabs)[number];
 
+async function searchMoviesAndSeries(query: string) {
+  const [movies, series] = await Promise.all([
+    supabase.from('movies').select('*').ilike('title', `%${query}%`).eq('status', 'published').limit(9),
+    supabase.from('series').select('*').ilike('title', `%${query}%`).eq('status', 'published').limit(9),
+  ]);
+  return [
+    ...(movies.data ?? []).map((m) => ({ ...m, kind: 'movie' as const })),
+    ...(series.data ?? []).map((s) => ({ ...s, kind: 'series' as const })),
+  ];
+}
+
 export default function SearchScreen() {
   const [query, setQuery] = useState('');
   const [activeTab, setActiveTab] = useState<Tab>('All');
+  const { data: results } = useQuery({
+    queryKey: ['search', query],
+    queryFn: () => searchMoviesAndSeries(query),
+    enabled: query.length > 1,
+  });
   const recents = ['Inception', 'Breaking Bad', 'Christopher Nolan'];
-  const results = Array.from({ length: 8 }, (_, i) => ({ id: `${activeTab}-${i}` }));
+
+  const filtered = (results ?? []).filter((item) => activeTab === 'All' || activeTab.toLowerCase() === item.kind);
 
   return (
     <View style={styles.container}>
@@ -39,10 +58,10 @@ export default function SearchScreen() {
         </View>
       )}
       <FlatList
-        data={results}
+        data={filtered}
         numColumns={3}
-        keyExtractor={(item) => item.id}
-        renderItem={() => <MovieCard />}
+        keyExtractor={(item) => `${item.kind}-${item.id}`}
+        renderItem={({ item }) => <MovieCard compact title={item.title} posterUrl={item.poster_url} />}
         contentContainerStyle={styles.grid}
       />
     </View>

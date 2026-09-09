@@ -1,20 +1,27 @@
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useQuery } from '@tanstack/react-query';
+import { fetchMovie, addToWatchlist } from '@/src/lib/api';
 import { tokens } from '@/src/theme/tokens';
 
 export default function MovieDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const router = useRouter();
+  const { data: movie } = useQuery({ queryKey: ['movie', id], queryFn: () => fetchMovie(id) });
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.backdrop} />
       <View style={styles.body}>
-        <Text style={styles.title}>Movie {id}</Text>
-        <Text style={styles.meta}>2024 · 2h 15m · Action</Text>
-        <Pressable style={styles.button}>
+        <Text style={styles.title}>{movie?.title ?? `Movie ${id}`}</Text>
+        <Text style={styles.meta}>
+          {movie?.release_year ?? '—'} · {movie?.runtime ? `${movie.runtime} min` : '—'} · ★ {movie?.rating ?? '—'}
+        </Text>
+        <Text style={styles.description}>{movie?.description}</Text>
+        <Pressable style={styles.button} onPress={() => router.push(`/player/${id}`)}>
           <Text style={styles.buttonText}>Play</Text>
         </Pressable>
-        <Pressable style={[styles.button, styles.secondary]}>
+        <Pressable style={[styles.button, styles.secondary]} onPress={() => addToWatchlist({ movieId: id })}>
           <Text style={styles.buttonText}>+ My List</Text>
         </Pressable>
         <Text style={styles.section}>Cast & Crew</Text>
