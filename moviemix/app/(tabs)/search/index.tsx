@@ -2,34 +2,27 @@ import { useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { MovieCard } from '@/src/components/MovieCard';
-import { supabase } from '@/src/lib/supabase';
+import { searchMoviesAndSeries } from '@/src/lib/api';
 import { tokens } from '@/src/theme/tokens';
 
 const tabs = ['All', 'Movies', 'Series', 'People'] as const;
 type Tab = (typeof tabs)[number];
-
-async function searchMoviesAndSeries(query: string) {
-  const [movies, series] = await Promise.all([
-    supabase.from('movies').select('*').ilike('title', `%${query}%`).eq('status', 'published').limit(9),
-    supabase.from('series').select('*').ilike('title', `%${query}%`).eq('status', 'published').limit(9),
-  ]);
-  return [
-    ...(movies.data ?? []).map((m) => ({ ...m, kind: 'movie' as const })),
-    ...(series.data ?? []).map((s) => ({ ...s, kind: 'series' as const })),
-  ];
-}
 
 export default function SearchScreen() {
   const [query, setQuery] = useState('');
   const [activeTab, setActiveTab] = useState<Tab>('All');
   const { data: results } = useQuery({
     queryKey: ['search', query],
-    queryFn: () => searchMoviesAndSeries(query),
+    queryFn: () => searchMoviesAndSeries(query, activeTab === 'All' ? undefined : (activeTab.toLowerCase() as 'movie' | 'series')),
     enabled: query.length > 1,
   });
   const recents = ['Inception', 'Breaking Bad', 'Christopher Nolan'];
 
-  const filtered = (results ?? []).filter((item) => activeTab === 'All' || activeTab.toLowerCase() === item.kind);
+  const items = [
+    ...(results?.movies ?? []).map((m: any) => ({ ...m, kind: 'movie' as const })),
+    ...(results?.series ?? []).map((s: any) => ({ ...s, kind: 'series' as const })),
+  ];
+  const filtered = items.filter((item) => activeTab === 'All' || activeTab.toLowerCase() === item.kind);
 
   return (
     <View style={styles.container}>
