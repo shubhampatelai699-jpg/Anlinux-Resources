@@ -17,15 +17,27 @@ serve(async (req) => {
     const profileId = sub.notes?.profile_id;
     if (!profileId) return new Response('Missing profile_id', { status: 400 });
 
+    const subscriptionStatus = sub.status === 'active' ? 'active' : 'cancelled';
+    const profileStatus = subscriptionStatus === 'active' ? 'active' : 'inactive';
+
     await supabase.from('subscriptions').upsert({
       profile_id: profileId,
       provider: 'razorpay',
       provider_subscription_id: sub.id,
-      status: sub.status === 'active' ? 'active' : 'cancelled',
+      status: subscriptionStatus,
       current_period_end: new Date(sub.current_end * 1000).toISOString(),
     }, { onConflict: 'provider_subscription_id' });
 
-    await supabase.from('profiles').update({ subscription_status: 'active' }).eq('id', profileId);
+    await supabase.from('profiles').update({ subscription_status: profileStatus }).eq('id', profileId);
+  }
+
+  if (event.event === 'subscription.cancelled' || event.event === 'subscription.halted') {
+    const sub = event.payload.subscription.entity;
+    const profileId = sub.notes?.profile_id;
+    if (!profileId) return new Response('Missing profile_id', { status: 400 });
+
+    await supabase.from('subscriptions').update({ status: 'cancelled' }).eq('provider_subscription_id', sub.id);
+    await supabase.from('profiles').update({ subscription_status: 'inactive' }).eq('id', profileId);
   }
 
   return new Response(JSON.stringify({ ok: true }), { headers: { 'Content-Type': 'application/json' } });
