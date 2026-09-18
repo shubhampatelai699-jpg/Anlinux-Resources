@@ -1,0 +1,1152 @@
+openapi: 3.0.3
+info:
+  title: MovieMix API
+  description: MovieMix v1.0 REST API specification
+  version: 1.0.0
+  contact:
+    name: MovieMix Team
+servers:
+  - url: https://api.moviemix.app/api/v1
+    description: Production
+  - url: http://10.0.2.2:3000/api/v1
+    description: Android Emulator Local Development
+
+paths:
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: User registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '409':
+          $ref: '#/components/responses/ConflictError'
+
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Login with email and password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /auth/refresh:
+    post:
+      tags: [Auth]
+      summary: Refresh access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+      responses:
+        '200':
+          description: New tokens issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenPairResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /auth/logout:
+    post:
+      tags: [Auth]
+      summary: Logout and revoke refresh token
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+      responses:
+        '204':
+          description: Logged out
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /auth/me:
+    get:
+      tags: [Auth]
+      summary: Get current user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Current user profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /auth/oauth/google:
+    post:
+      tags: [Auth]
+      summary: Login or register with Google OAuth token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuthRequest'
+      responses:
+        '200':
+          description: Authenticated via OAuth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+
+  /home:
+    get:
+      tags: [Home]
+      summary: Aggregated home feed
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Home feed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HomeResponse'
+
+  /home/trending:
+    get:
+      tags: [Home]
+      summary: Trending content
+      parameters:
+        - in: query
+          name: period
+          schema:
+            type: string
+            enum: [day, week, month]
+      responses:
+        '200':
+          description: Trending list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentListResponse'
+
+  /home/popular:
+    get:
+      tags: [Home]
+      summary: Popular content
+      responses:
+        '200':
+          description: Popular list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentListResponse'
+
+  /home/new-releases:
+    get:
+      tags: [Home]
+      summary: New releases
+      responses:
+        '200':
+          description: New releases list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentListResponse'
+
+  /home/genres:
+    get:
+      tags: [Home]
+      summary: Genre catalog
+      responses:
+        '200':
+          description: Genre list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenreListResponse'
+
+  /home/continue-watching:
+    get:
+      tags: [Home]
+      summary: Continue watching row
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Continue watching list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContinueWatchingListResponse'
+
+  /movies:
+    get:
+      tags: [Movies]
+      summary: List movies
+      parameters:
+        - in: query
+          name: genre
+          schema: { type: string }
+        - in: query
+          name: year
+          schema: { type: integer }
+        - in: query
+          name: language
+          schema: { type: string }
+        - in: query
+          name: rating
+          schema: { type: number }
+        - in: query
+          name: tier
+          schema: { type: string, enum: [FREE, PREMIUM, SUBSCRIPTION_REQUIRED] }
+        - in: query
+          name: sort
+          schema: { type: string, enum: [newest, popular, rating, title] }
+        - in: query
+          name: page
+          schema: { type: integer, default: 1 }
+        - in: query
+          name: limit
+          schema: { type: integer, default: 20 }
+      responses:
+        '200':
+          description: Paginated movie list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMovieResponse'
+
+  /movies/{id}:
+    get:
+      tags: [Movies]
+      summary: Get movie details
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Movie details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieDetailResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+
+  /movies/{id}/recommendations:
+    get:
+      tags: [Movies]
+      summary: Movie recommendations
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Recommendations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentListResponse'
+
+  /movies/{id}/trailer:
+    get:
+      tags: [Movies]
+      summary: Get movie trailer
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Trailer asset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaAssetResponse'
+
+  /series:
+    get:
+      tags: [Series]
+      summary: List series
+      parameters:
+        - in: query
+          name: genre
+          schema: { type: string }
+        - in: query
+          name: page
+          schema: { type: integer, default: 1 }
+        - in: query
+          name: limit
+          schema: { type: integer, default: 20 }
+      responses:
+        '200':
+          description: Paginated series list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSeriesResponse'
+
+  /series/{id}:
+    get:
+      tags: [Series]
+      summary: Get series details
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Series details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeriesDetailResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+
+  /series/{id}/seasons:
+    get:
+      tags: [Series]
+      summary: Get seasons for a series
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Season list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeasonListResponse'
+
+  /seasons/{id}:
+    get:
+      tags: [Series]
+      summary: Get season details
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Season details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeasonResponse'
+
+  /seasons/{id}/episodes:
+    get:
+      tags: [Series]
+      summary: Get episodes for a season
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Episode list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EpisodeListResponse'
+
+  /episodes/{id}:
+    get:
+      tags: [Series]
+      summary: Get episode details
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Episode details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EpisodeResponse'
+
+  /search:
+    get:
+      tags: [Search]
+      summary: Search movies and series
+      parameters:
+        - in: query
+          name: q
+          required: true
+          schema: { type: string }
+        - in: query
+          name: type
+          schema: { type: string, enum: [MOVIE, SERIES, ALL] }
+        - in: query
+          name: page
+          schema: { type: integer, default: 1 }
+        - in: query
+          name: limit
+          schema: { type: integer, default: 20 }
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+
+  /search/suggestions:
+    get:
+      tags: [Search]
+      summary: Autocomplete suggestions
+      parameters:
+        - in: query
+          name: q
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Suggestions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuggestionResponse'
+
+  /watchlist:
+    get:
+      tags: [Watchlist]
+      summary: Get user watchlist
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Watchlist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchlistResponse'
+    post:
+      tags: [Watchlist]
+      summary: Add to watchlist
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistItemRequest'
+      responses:
+        '201':
+          description: Added
+        '400':
+          $ref: '#/components/responses/ValidationError'
+
+  /watchlist/{contentType}/{contentId}:
+    delete:
+      tags: [Watchlist]
+      summary: Remove from watchlist
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: contentType
+          required: true
+          schema: { type: string, enum: [MOVIE, SERIES] }
+        - in: path
+          name: contentId
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '204':
+          description: Removed
+
+  /watch-history:
+    get:
+      tags: [Watch History]
+      summary: Get watch history
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: page
+          schema: { type: integer, default: 1 }
+        - in: query
+          name: limit
+          schema: { type: integer, default: 20 }
+      responses:
+        '200':
+          description: Watch history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchHistoryResponse'
+
+  /watch-history/{contentType}/{contentId}:
+    delete:
+      tags: [Watch History]
+      summary: Remove history item
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: contentType
+          required: true
+          schema: { type: string, enum: [MOVIE, EPISODE] }
+        - in: path
+          name: contentId
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '204':
+          description: Removed
+
+  /watch-progress/{contentType}/{contentId}:
+    get:
+      tags: [Watch Progress]
+      summary: Get watch progress
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: contentType
+          required: true
+          schema: { type: string, enum: [MOVIE, EPISODE] }
+        - in: path
+          name: contentId
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchProgressResponse'
+    put:
+      tags: [Watch Progress]
+      summary: Update watch progress
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: contentType
+          required: true
+          schema: { type: string, enum: [MOVIE, EPISODE] }
+        - in: path
+          name: contentId
+          required: true
+          schema: { type: string, format: uuid }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchProgressRequest'
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchProgressResponse'
+
+  /playback/session:
+    post:
+      tags: [Playback]
+      summary: Create playback session
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaybackSessionRequest'
+      responses:
+        '201':
+          description: Playback session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaybackSessionResponse'
+        '402':
+          $ref: '#/components/responses/PremiumRequiredError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    RegisterRequest:
+      type: object
+      required: [email, password, displayName]
+      properties:
+        email: { type: string, format: email }
+        password: { type: string, minLength: 8 }
+        displayName: { type: string, maxLength: 120 }
+
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email }
+        password: { type: string }
+
+    RefreshRequest:
+      type: object
+      required: [refreshToken]
+      properties:
+        refreshToken: { type: string }
+
+    OAuthRequest:
+      type: object
+      required: [idToken]
+      properties:
+        idToken: { type: string }
+
+    TokenPairResponse:
+      type: object
+      properties:
+        success: { type: boolean, example: true }
+        data:
+          type: object
+          properties:
+            accessToken: { type: string }
+            refreshToken: { type: string }
+            expiresAt: { type: string, format: date-time }
+
+    AuthResponse:
+      allOf:
+        - $ref: '#/components/schemas/TokenPairResponse'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                user:
+                  $ref: '#/components/schemas/User'
+
+    User:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        displayName: { type: string }
+        email: { type: string, format: email }
+        avatarUrl: { type: string, nullable: true }
+        role: { type: string, enum: [USER, ADMIN, SUPER_ADMIN] }
+
+    UserResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          $ref: '#/components/schemas/User'
+
+    Genre:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+        slug: { type: string }
+
+    GenreListResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genre'
+
+    MediaAsset:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        contentType: { type: string, enum: [POSTER, BACKDROP, THUMBNAIL, TRAILER, VIDEO, SUBTITLE, AUDIO] }
+        url: { type: string }
+        width: { type: integer, nullable: true }
+        height: { type: integer, nullable: true }
+        language: { type: string, nullable: true }
+
+    Movie:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [MOVIE] }
+        title: { type: string }
+        slug: { type: string }
+        description: { type: string, nullable: true }
+        releaseDate: { type: string, format: date, nullable: true }
+        runtimeSeconds: { type: integer, nullable: true }
+        ageRating: { type: string, nullable: true }
+        language: { type: string, nullable: true }
+        country: { type: string, nullable: true }
+        rating: { type: number, nullable: true }
+        status: { type: string, enum: [DRAFT, PROCESSING, READY, PUBLISHED, UNPUBLISHED, ARCHIVED] }
+        poster: { $ref: '#/components/schemas/MediaAsset', nullable: true }
+        backdrop: { $ref: '#/components/schemas/MediaAsset', nullable: true }
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genre'
+
+    MovieDetailResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          allOf:
+            - $ref: '#/components/schemas/Movie'
+            - type: object
+              properties:
+                recommendations:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Movie'
+
+    PaginatedMovieResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Movie'
+            total: { type: integer }
+            page: { type: integer }
+            limit: { type: integer }
+
+    Series:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [SERIES] }
+        title: { type: string }
+        slug: { type: string }
+        description: { type: string, nullable: true }
+        releaseDate: { type: string, format: date, nullable: true }
+        ageRating: { type: string, nullable: true }
+        language: { type: string, nullable: true }
+        country: { type: string, nullable: true }
+        rating: { type: number, nullable: true }
+        status: { type: string, enum: [DRAFT, PROCESSING, READY, PUBLISHED, UNPUBLISHED, ARCHIVED] }
+        poster: { $ref: '#/components/schemas/MediaAsset', nullable: true }
+        backdrop: { $ref: '#/components/schemas/MediaAsset', nullable: true }
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genre'
+
+    SeriesDetailResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          allOf:
+            - $ref: '#/components/schemas/Series'
+            - type: object
+              properties:
+                seasons:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Season'
+
+    PaginatedSeriesResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Series'
+            total: { type: integer }
+            page: { type: integer }
+            limit: { type: integer }
+
+    Season:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        seasonNumber: { type: integer }
+        title: { type: string, nullable: true }
+        description: { type: string, nullable: true }
+
+    SeasonListResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Season'
+
+    SeasonResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          $ref: '#/components/schemas/Season'
+
+    Episode:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        episodeNumber: { type: integer }
+        title: { type: string }
+        description: { type: string, nullable: true }
+        runtimeSeconds: { type: integer, nullable: true }
+        releaseDate: { type: string, format: date, nullable: true }
+        thumbnail: { $ref: '#/components/schemas/MediaAsset', nullable: true }
+
+    EpisodeListResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Episode'
+
+    EpisodeResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          $ref: '#/components/schemas/Episode'
+
+    ContentListResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Movie'
+              - $ref: '#/components/schemas/Series'
+
+    HomeResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: object
+          properties:
+            hero:
+              type: array
+              items:
+                $ref: '#/components/schemas/Movie'
+            continueWatching:
+              type: array
+              items:
+                $ref: '#/components/schemas/ContinueWatchingItem'
+            trending:
+              type: array
+              items:
+                $ref: '#/components/schemas/Movie'
+            newReleases:
+              type: array
+              items:
+                $ref: '#/components/schemas/Movie'
+            popular:
+              type: array
+              items:
+                $ref: '#/components/schemas/Movie'
+            genres:
+              type: array
+              items:
+                $ref: '#/components/schemas/Genre'
+
+    ContinueWatchingItem:
+      type: object
+      properties:
+        contentType: { type: string, enum: [MOVIE, EPISODE] }
+        contentId: { type: string, format: uuid }
+        title: { type: string }
+        poster: { $ref: '#/components/schemas/MediaAsset', nullable: true }
+        positionSeconds: { type: integer }
+        durationSeconds: { type: integer }
+        percentage: { type: number }
+
+    ContinueWatchingListResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContinueWatchingItem'
+
+    SearchResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: object
+          properties:
+            movies:
+              type: array
+              items:
+                $ref: '#/components/schemas/Movie'
+            series:
+              type: array
+              items:
+                $ref: '#/components/schemas/Series'
+            total: { type: integer }
+
+    SuggestionResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: array
+          items:
+            type: string
+
+    WatchlistItemRequest:
+      type: object
+      required: [contentType, contentId]
+      properties:
+        contentType: { type: string, enum: [MOVIE, SERIES] }
+        contentId: { type: string, format: uuid }
+
+    WatchlistResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              contentType: { type: string, enum: [MOVIE, SERIES] }
+              contentId: { type: string, format: uuid }
+              title: { type: string }
+              poster: { $ref: '#/components/schemas/MediaAsset', nullable: true }
+              addedAt: { type: string, format: date-time }
+
+    WatchHistoryResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                type: object
+                properties:
+                  contentType: { type: string, enum: [MOVIE, EPISODE] }
+                  contentId: { type: string, format: uuid }
+                  title: { type: string }
+                  completed: { type: boolean }
+                  watchedAt: { type: string, format: date-time }
+
+    WatchProgressRequest:
+      type: object
+      required: [positionSeconds, durationSeconds]
+      properties:
+        positionSeconds: { type: integer, minimum: 0 }
+        durationSeconds: { type: integer, minimum: 1 }
+
+    WatchProgressResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: object
+          properties:
+            contentType: { type: string, enum: [MOVIE, EPISODE] }
+            contentId: { type: string, format: uuid }
+            positionSeconds: { type: integer }
+            durationSeconds: { type: integer }
+            percentage: { type: number }
+            completed: { type: boolean }
+            lastWatchedAt: { type: string, format: date-time }
+
+    PlaybackSessionRequest:
+      type: object
+      required: [contentType, contentId]
+      properties:
+        contentType: { type: string, enum: [MOVIE, EPISODE] }
+        contentId: { type: string, format: uuid }
+        quality: { type: string, enum: [AUTO, 360, 480, 720, 1080], default: AUTO }
+        audioLanguage: { type: string, nullable: true }
+        subtitleLanguage: { type: string, nullable: true }
+
+    PlaybackSessionResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          type: object
+          properties:
+            sessionId: { type: string, format: uuid }
+            protocol: { type: string, enum: [HLS, DASH] }
+            manifestUrl: { type: string }
+            expiresAt: { type: string, format: date-time }
+            audioTracks:
+              type: array
+              items:
+                $ref: '#/components/schemas/Track'
+            subtitles:
+              type: array
+              items:
+                $ref: '#/components/schemas/Track'
+
+    Track:
+      type: object
+      properties:
+        languageCode: { type: string }
+        label: { type: string }
+        isDefault: { type: boolean }
+
+    MediaAssetResponse:
+      type: object
+      properties:
+        success: { type: boolean }
+        data:
+          $ref: '#/components/schemas/MediaAsset'
+
+    ApiError:
+      type: object
+      properties:
+        success: { type: boolean, example: false }
+        error:
+          type: object
+          properties:
+            code: { type: string }
+            message: { type: string }
+        requestId: { type: string, format: uuid }
+
+  responses:
+    ValidationError:
+      description: Invalid input
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+          example:
+            success: false
+            error:
+              code: VALIDATION_ERROR
+              message: Invalid request payload
+            requestId: 00000000-0000-0000-0000-000000000000
+
+    UnauthorizedError:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+          example:
+            success: false
+            error:
+              code: AUTH_INVALID
+              message: Authentication required
+            requestId: 00000000-0000-0000-0000-000000000000
+
+    ForbiddenError:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+          example:
+            success: false
+            error:
+              code: FORBIDDEN
+              message: Access denied
+            requestId: 00000000-0000-0000-0000-000000000000
+
+    NotFoundError:
+      description: Content not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+          example:
+            success: false
+            error:
+              code: CONTENT_NOT_FOUND
+              message: Content not found
+            requestId: 00000000-0000-0000-0000-000000000000
+
+    ConflictError:
+      description: Resource conflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+          example:
+            success: false
+            error:
+              code: ALREADY_EXISTS
+              message: Resource already exists
+            requestId: 00000000-0000-0000-0000-000000000000
+
+    PremiumRequiredError:
+      description: Premium subscription required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+          example:
+            success: false
+            error:
+              code: PREMIUM_REQUIRED
+              message: Premium subscription required
+            requestId: 00000000-0000-0000-0000-000000000000
