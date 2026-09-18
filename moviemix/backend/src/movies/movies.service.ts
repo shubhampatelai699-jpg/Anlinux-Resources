@@ -8,7 +8,7 @@ export class MoviesService {
   findAll(query: { status?: string; featured?: boolean; genre?: string; skip?: number; take?: number }) {
     return this.prisma.movie.findMany({
       where: {
-        status: query.status,
+        status: query.status ?? 'published',
         featured: query.featured,
         genres: query.genre ? { some: { genreId: query.genre } } : undefined,
       },

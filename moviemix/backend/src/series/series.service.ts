@@ -8,7 +8,7 @@ export class SeriesService {
   findAll(query: { status?: string; featured?: boolean; genre?: string }) {
     return this.prisma.series.findMany({
       where: {
-        status: query.status,
+        status: query.status ?? 'published',
         featured: query.featured,
         genres: query.genre ? { some: { genreId: query.genre } } : undefined,
       },
