@@ -9,7 +9,11 @@ import { useAuthStore } from '@/src/store/auth';
 function AuthGate({ children }: { children: React.ReactNode }) {
   const segments = useSegments();
   const router = useRouter();
-  const { session, initialized } = useAuthStore();
+  const { session, initialized, initialize } = useAuthStore();
+
+  useEffect(() => {
+    void initialize();
+  }, [initialize]);
 
   useEffect(() => {
     if (!initialized) return;

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { createJSONStorage, persist } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Quality = 'auto' | '1080p' | '720p' | '480p';
@@ -24,6 +24,6 @@ export const usePlayerStore = create<PlayerState>()(
       setSubtitle: (subtitle) => set({ subtitle }),
       setAutoplay: (autoplay) => set({ autoplay }),
     }),
-    { name: 'moviemix-player-settings', getStorage: () => AsyncStorage }
+    { name: 'moviemix-player-settings', storage: createJSONStorage(() => AsyncStorage) }
   )
 );

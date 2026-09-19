@@ -99,7 +99,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/home/runner/work/Anlinux-Resources/Anlinux-Resources/moviemix/admin",
+    "outputFileTracingRoot": "/home/runner/work/Anlinux-Resources/Anlinux-Resources/moviemix",
     "experimental": {
       "useSkewCookie": false,
       "cacheLife": {
@@ -288,11 +288,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.mjs",
     "turbopack": {
-      "root": "/home/runner/work/Anlinux-Resources/Anlinux-Resources/moviemix/admin"
+      "root": "/home/runner/work/Anlinux-Resources/Anlinux-Resources/moviemix"
     }
   },
   "appDir": "/home/runner/work/Anlinux-Resources/Anlinux-Resources/moviemix/admin",
-  "relativeAppDir": "",
+  "relativeAppDir": "admin",
   "files": [
     ".next/routes-manifest.json",
     ".next/server/pages-manifest.json",

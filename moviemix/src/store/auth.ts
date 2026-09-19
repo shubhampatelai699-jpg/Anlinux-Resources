@@ -25,6 +25,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   loading: false,
   setSession: (session) => set({ session, user: session?.user ?? null }),
   initialize: async () => {
+    if (get().initialized) return;
     const { data } = await supabase.auth.getSession();
     set({ session: data.session, user: data.session?.user ?? null, initialized: true });
     supabase.auth.onAuthStateChange((_event, session) => {
@@ -70,5 +71,3 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     set({ session: null, user: null });
   },
 }));
-
-useAuthStore.getState().initialize();
