@@ -63,6 +63,7 @@ jobs:
           cache: npm
           cache-dependency-path: moviemix/backend/package-lock.json
       - run: npm ci
+      - run: npm run db:generate
       - run: npm run lint
       - run: npm run tsc
       - run: npm run build
