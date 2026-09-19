@@ -15,7 +15,7 @@ export default function MovieDetailScreen() {
       <View style={styles.body}>
         <Text style={styles.title}>{movie?.title ?? `Movie ${id}`}</Text>
         <Text style={styles.meta}>
-          {movie?.release_year ?? '—'} · {movie?.runtime ? `${movie.runtime} min` : '—'} · ★ {movie?.rating ?? '—'}
+          {movie?.release_year ?? '—'} · {movie?.runtime_minutes ? `${movie.runtime_minutes} min` : '—'} · ★ {movie?.rating ?? '—'}
         </Text>
         <Text style={styles.description}>{movie?.description}</Text>
         <Pressable style={styles.button} onPress={() => router.push(`/player/${id}`)}>
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   body: { padding: tokens.space[4] },
   title: { fontSize: 24, color: tokens.color.text, marginBottom: tokens.space[2] },
   meta: { color: tokens.color.textMuted, marginBottom: tokens.space[4] },
+  description: { color: tokens.color.text, marginBottom: tokens.space[4] },
   button: { backgroundColor: tokens.color.primary, padding: tokens.space[3], borderRadius: tokens.radius.md, marginBottom: tokens.space[3] },
   secondary: { backgroundColor: tokens.color.secondary },
   buttonText: { color: tokens.color.text, textAlign: 'center' },

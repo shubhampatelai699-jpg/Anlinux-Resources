@@ -10,11 +10,8 @@ export type Episode = Database['public']['Tables']['episodes']['Row'];
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const session = await supabase.auth.getSession();
   const token = session.data.session?.access_token;
-  const authHeader = token ? { Authorization: 'Bearer ' + token } : {};
-  const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-    ...authHeader,
-  };
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (token) headers.Authorization = 'Bearer ' + token;
   const res = await fetch(`${API_BASE}/api/v1${path}`, { ...init, headers });
   if (!res.ok) throw new Error(`API error ${res.status}: ${await res.text()}`);
   return res.json();
@@ -59,11 +56,21 @@ export async function removeFromWatchlist({ movieId, seriesId }: { movieId?: str
   return api(`/watchlist/${movieId ? 'movie' : 'series'}/${contentId}`, { method: 'DELETE' });
 }
 
-export async function fetchWatchlist() {
+export type WatchlistItem = {
+  content_id: string;
+  content_type: 'movie' | 'series';
+  created_at: string;
+  movies: { title: string; poster_url: string | null } | null;
+  series: { title: string; poster_url: string | null } | null;
+};
+
+export async function fetchWatchlist(): Promise<WatchlistItem[]> {
   return api('/watchlist');
 }
 
-export async function searchMoviesAndSeries(q: string, type?: 'movie' | 'series', limit = 20) {
+export type SearchResults = { movies: Movie[]; series: Series[] };
+
+export async function searchMoviesAndSeries(q: string, type?: 'movie' | 'series', limit = 20): Promise<SearchResults> {
   const params = new URLSearchParams({ q, limit: String(limit) });
   if (type) params.set('type', type);
   return api(`/search?${params.toString()}`);

@@ -6,8 +6,8 @@ import { tokens } from '@/src/theme/tokens';
 
 export default function MyListScreen() {
   const { data, isLoading } = useQuery({ queryKey: ['watchlist'], queryFn: fetchWatchlist });
-  const items = (data ?? []).map((item: any) => ({
-    id: item.movie_id ?? item.series_id,
+  const items = (data ?? []).map((item) => ({
+    id: item.content_id,
     title: item.movies?.title ?? item.series?.title ?? '',
     poster_url: item.movies?.poster_url ?? item.series?.poster_url ?? null,
   }));
@@ -31,4 +31,5 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: tokens.color.background },
   title: { fontSize: 24, color: tokens.color.text, padding: tokens.space[4] },
   grid: { paddingHorizontal: tokens.space[4], paddingBottom: tokens.space[6] },
+  empty: { color: tokens.color.textMuted, paddingHorizontal: tokens.space[4] },
 });

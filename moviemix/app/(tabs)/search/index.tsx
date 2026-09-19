@@ -19,8 +19,8 @@ export default function SearchScreen() {
   const recents = ['Inception', 'Breaking Bad', 'Christopher Nolan'];
 
   const items = [
-    ...(results?.movies ?? []).map((m: any) => ({ ...m, kind: 'movie' as const })),
-    ...(results?.series ?? []).map((s: any) => ({ ...s, kind: 'series' as const })),
+    ...(results?.movies ?? []).map((m) => ({ ...m, kind: 'movie' as const })),
+    ...(results?.series ?? []).map((s) => ({ ...s, kind: 'series' as const })),
   ];
   const filtered = items.filter((item) => activeTab === 'All' || activeTab.toLowerCase() === item.kind);
 
