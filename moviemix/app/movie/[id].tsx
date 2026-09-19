@@ -15,7 +15,7 @@ export default function MovieDetailScreen() {
       <View style={styles.body}>
         <Text style={styles.title}>{movie?.title ?? `Movie ${id}`}</Text>
         <Text style={styles.meta}>
-          {movie?.release_year ?? '—'} · {movie?.runtime_minutes ? `${movie.runtime_minutes} min` : '—'} · ★ {movie?.rating ?? '—'}
+          {movie?.releaseYear ?? '—'} · {movie?.runtimeMinutes ? `${movie.runtimeMinutes} min` : '—'} · ★ {movie?.rating ?? '—'}
         </Text>
         <Text style={styles.description}>{movie?.description}</Text>
         <Pressable style={styles.button} onPress={() => router.push(`/player/${id}`)}>

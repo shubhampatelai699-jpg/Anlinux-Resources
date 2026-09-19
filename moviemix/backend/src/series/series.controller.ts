@@ -8,8 +8,14 @@ export class SeriesController {
   constructor(private series: SeriesService) {}
 
   @Get()
-  findAll(@Query('status') status?: string, @Query('featured') featured?: string, @Query('genre') genre?: string) {
-    return this.series.findAll({ status, featured: featured === 'true', genre });
+  findAll(
+    @Query('status') status?: string,
+    @Query('featured') featured?: string,
+    @Query('genre') genre?: string,
+    @Query('language') language?: string,
+    @Query('limit') limit?: string,
+  ) {
+    return this.series.findAll({ status, featured: featured === 'true', genre, language, take: limit ? Number(limit) : undefined });
   }
 
   @Get('featured')

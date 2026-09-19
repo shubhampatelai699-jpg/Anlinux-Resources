@@ -1,20 +1,36 @@
 import { useLocalSearchParams } from 'expo-router';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/src/lib/supabase';
+import { getSignedPlaybackUrl } from '@/src/lib/api';
 import { tokens } from '@/src/theme/tokens';
+
+const FALLBACK_STREAM = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
 
 export default function PlayerScreen() {
   const { contentId, episodeId } = useLocalSearchParams<{ contentId: string; episodeId?: string }>();
+  const playbackId = episodeId ?? contentId;
+  const [source, setSource] = useState<string | null>(null);
 
-  const player = useVideoPlayer(
-    'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
-    (p) => {
-      p.loop = false;
-      p.play();
-    }
-  );
+  const { error } = useQuery({
+    queryKey: ['signed-url', playbackId],
+    queryFn: async () => {
+      const { url } = await getSignedPlaybackUrl(playbackId);
+      setSource(url);
+      return url;
+    },
+    retry: 1,
+  });
+
+  // Fall back to the public test stream in dev when Mux credentials are not configured.
+  const streamUrl = source ?? (error ? FALLBACK_STREAM : null);
+
+  const player = useVideoPlayer(streamUrl, (p) => {
+    p.loop = false;
+    p.play();
+  });
 
   useEffect(() => {
     const interval = setInterval(async () => {
@@ -32,7 +48,11 @@ export default function PlayerScreen() {
 
   return (
     <View style={styles.container}>
-      <VideoView player={player} style={styles.video} contentFit="contain" nativeControls />
+      {streamUrl ? (
+        <VideoView player={player} style={styles.video} contentFit="contain" nativeControls />
+      ) : (
+        <Text style={styles.loading}>Loading stream…</Text>
+      )}
     </View>
   );
 }
@@ -40,4 +60,5 @@ export default function PlayerScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: tokens.color.background, justifyContent: 'center' },
   video: { width: '100%', height: 240 },
+  loading: { color: tokens.color.textMuted, textAlign: 'center' },
 });

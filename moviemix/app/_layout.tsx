@@ -12,7 +12,7 @@ function AuthGate({ children }: { children: React.ReactNode }) {
   const { session, initialized, initialize } = useAuthStore();
 
   useEffect(() => {
-    void initialize();
+    initialize();
   }, [initialize]);
 
   useEffect(() => {

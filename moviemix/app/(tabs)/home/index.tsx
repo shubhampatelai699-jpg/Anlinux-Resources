@@ -10,12 +10,17 @@ export default function HomeScreen() {
   const { data: movies } = useQuery({ queryKey: ['movies'], queryFn: () => fetchMovies(12) });
   const { data: series } = useQuery({ queryKey: ['series'], queryFn: () => fetchSeries(12) });
 
+  const heroItems = (featured ?? []).map((m) => ({ id: m.id, title: m.title, backdropUrl: m.backdropUrl, href: `/movie/${m.id}` }));
+  const featuredRail = (featured ?? []).map((m) => ({ id: m.id, title: m.title, posterUrl: m.posterUrl, href: `/movie/${m.id}` }));
+  const movieRail = (movies ?? []).map((m) => ({ id: m.id, title: m.title, posterUrl: m.posterUrl, href: `/movie/${m.id}` }));
+  const seriesRail = (series ?? []).map((s) => ({ id: s.id, title: s.title, posterUrl: s.posterUrl, href: `/series/${s.id}` }));
+
   return (
     <ScrollView style={styles.container}>
-      <HeroBanner items={featured ?? []} />
-      <HorizontalRail title="Featured Movies" items={featured ?? []} />
-      <HorizontalRail title="New Movies" items={movies ?? []} />
-      <HorizontalRail title="New Series" items={series ?? []} />
+      <HeroBanner items={heroItems} />
+      <HorizontalRail title="Featured Movies" items={featuredRail} />
+      <HorizontalRail title="New Movies" items={movieRail} />
+      <HorizontalRail title="New Series" items={seriesRail} />
       <View style={styles.spacer} />
     </ScrollView>
   );

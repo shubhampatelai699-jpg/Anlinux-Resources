@@ -5,15 +5,16 @@ import { PrismaService } from '../common/prisma.service';
 export class SeriesService {
   constructor(private prisma: PrismaService) {}
 
-  findAll(query: { status?: string; featured?: boolean; genre?: string }) {
+  findAll(query: { status?: string; featured?: boolean; genre?: string; language?: string; take?: number }) {
     return this.prisma.series.findMany({
       where: {
         status: query.status ?? 'published',
         featured: query.featured,
         genres: query.genre ? { some: { genreId: query.genre } } : undefined,
+        languageCode: query.language,
       },
       include: { genres: { include: { genre: true } } },
-      take: 20,
+      take: query.take ?? 20,
     });
   }
 

@@ -5,12 +5,13 @@ import { PrismaService } from '../common/prisma.service';
 export class MoviesService {
   constructor(private prisma: PrismaService) {}
 
-  findAll(query: { status?: string; featured?: boolean; genre?: string; skip?: number; take?: number }) {
+  findAll(query: { status?: string; featured?: boolean; genre?: string; language?: string; skip?: number; take?: number }) {
     return this.prisma.movie.findMany({
       where: {
         status: query.status ?? 'published',
         featured: query.featured,
         genres: query.genre ? { some: { genreId: query.genre } } : undefined,
+        languageCode: query.language,
       },
       include: { genres: { include: { genre: true } } },
       skip: query.skip,

@@ -7,9 +7,10 @@ import { tokens } from '@/src/theme/tokens';
 export default function MyListScreen() {
   const { data, isLoading } = useQuery({ queryKey: ['watchlist'], queryFn: fetchWatchlist });
   const items = (data ?? []).map((item) => ({
-    id: item.content_id,
-    title: item.movies?.title ?? item.series?.title ?? '',
-    poster_url: item.movies?.poster_url ?? item.series?.poster_url ?? null,
+    id: item.contentId,
+    title: item.movie?.title ?? item.series?.title ?? '',
+    posterUrl: item.movie?.posterUrl ?? item.series?.posterUrl ?? null,
+    href: item.contentType === 'movie' ? `/movie/${item.contentId}` : `/series/${item.contentId}`,
   }));
 
   return (
@@ -20,7 +21,7 @@ export default function MyListScreen() {
         data={items}
         numColumns={2}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <MovieCard title={item.title} posterUrl={item.poster_url} />}
+        renderItem={({ item }) => <MovieCard title={item.title} posterUrl={item.posterUrl} href={item.href} />}
         contentContainerStyle={styles.grid}
       />
     </View>

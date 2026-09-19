@@ -34,7 +34,7 @@ export default function TrendingScreen() {
         renderItem={({ item }) => (
           <View style={styles.row}>
             <Text style={styles.rank}>{item.rank}</Text>
-            <MovieCard compact title={item.title} posterUrl={item.poster_url} />
+            <MovieCard compact title={item.title} posterUrl={item.posterUrl} href={`/movie/${item.id}`} />
           </View>
         )}
         contentContainerStyle={styles.list}

@@ -2,10 +2,10 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { MovieCard } from './MovieCard';
 import { tokens } from '@/src/theme/tokens';
 
-export type RailItem = { id: string; title: string; poster_url: string | null };
+export type RailItem = { id: string; title: string; posterUrl: string | null; href?: string };
 
 export function HorizontalRail({ title, items }: { title: string; items?: RailItem[] }) {
-  const data = items?.length ? items : Array.from({ length: 6 }, (_, i) => ({ id: `placeholder-${i}`, title: '', poster_url: null }));
+  const data = items?.length ? items : Array.from({ length: 6 }, (_, i) => ({ id: `placeholder-${i}`, title: '', posterUrl: null }));
 
   return (
     <View style={styles.container}>
@@ -15,7 +15,7 @@ export function HorizontalRail({ title, items }: { title: string; items?: RailIt
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <MovieCard compact title={item.title} posterUrl={item.poster_url} />}
+        renderItem={({ item }) => <MovieCard compact title={item.title} posterUrl={item.posterUrl} href={item.href} />}
         contentContainerStyle={styles.list}
       />
     </View>

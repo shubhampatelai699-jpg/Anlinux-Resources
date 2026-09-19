@@ -54,7 +54,14 @@ export default function SearchScreen() {
         data={filtered}
         numColumns={3}
         keyExtractor={(item) => `${item.kind}-${item.id}`}
-        renderItem={({ item }) => <MovieCard compact title={item.title} posterUrl={item.poster_url} />}
+        renderItem={({ item }) => (
+          <MovieCard
+            compact
+            title={item.title}
+            posterUrl={item.posterUrl}
+            href={item.kind === 'movie' ? `/movie/${item.id}` : `/series/${item.id}`}
+          />
+        )}
         contentContainerStyle={styles.grid}
       />
     </View>

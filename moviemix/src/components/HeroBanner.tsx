@@ -4,10 +4,10 @@ import { tokens } from '@/src/theme/tokens';
 
 const { width } = Dimensions.get('window');
 
-export type HeroItem = { id: string; title: string; backdrop_url: string | null };
+export type HeroItem = { id: string; title: string; backdropUrl: string | null; href?: string };
 
 export function HeroBanner({ items }: { items?: HeroItem[] }) {
-  const slides = items?.length ? items.slice(0, 5) : Array.from({ length: 5 }, (_, i) => ({ id: `hero-${i}`, title: '', backdrop_url: null }));
+  const slides = items?.length ? items.slice(0, 5) : Array.from({ length: 5 }, (_, i) => ({ id: `hero-${i}`, title: '', backdropUrl: null }));
   const [index, setIndex] = useState(0);
   const listRef = useRef<FlatList>(null);
 
@@ -34,8 +34,8 @@ export function HeroBanner({ items }: { items?: HeroItem[] }) {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.slide}>
-            {item.backdrop_url ? (
-              <Image source={{ uri: item.backdrop_url }} style={styles.image} />
+            {item.backdropUrl ? (
+              <Image source={{ uri: item.backdropUrl }} style={styles.image} />
             ) : null}
             <Text numberOfLines={1} style={styles.title}>{item.title}</Text>
           </View>
