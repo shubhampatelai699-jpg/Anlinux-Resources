@@ -1,31 +1,20 @@
 import { useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/src/lib/supabase';
 import { getSignedPlaybackUrl } from '@/src/lib/api';
 import { tokens } from '@/src/theme/tokens';
 
-const FALLBACK_STREAM = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
-
 export default function PlayerScreen() {
   const { contentId, episodeId } = useLocalSearchParams<{ contentId: string; episodeId?: string }>();
-  const playbackId = episodeId ?? contentId;
-  const [source, setSource] = useState<string | null>(null);
-
-  const { error } = useQuery({
-    queryKey: ['signed-url', playbackId],
-    queryFn: async () => {
-      const { url } = await getSignedPlaybackUrl(playbackId);
-      setSource(url);
-      return url;
-    },
+  const { data, error } = useQuery({
+    queryKey: ['signed-url', contentId, episodeId],
+    queryFn: () => getSignedPlaybackUrl(contentId, episodeId),
     retry: 1,
   });
-
-  // Fall back to the public test stream in dev when Mux credentials are not configured.
-  const streamUrl = source ?? (error ? FALLBACK_STREAM : null);
+  const streamUrl = data?.url ?? null;
 
   const player = useVideoPlayer(streamUrl, (p) => {
     p.loop = false;
@@ -33,25 +22,28 @@ export default function PlayerScreen() {
   });
 
   useEffect(() => {
+    if (!streamUrl) return;
     const interval = setInterval(async () => {
+      const positionSeconds = Math.floor(player.currentTime ?? 0);
+      if (!Number.isFinite(positionSeconds) || positionSeconds < 0) return;
       await supabase.functions.invoke('heartbeat', {
         body: {
           movieId: episodeId ? undefined : contentId,
           episodeId,
-          positionSeconds: Math.floor(player.currentTime ?? 0),
+          positionSeconds,
           completed: false,
         },
       });
     }, 10000);
     return () => clearInterval(interval);
-  }, [contentId, episodeId, player]);
+  }, [contentId, episodeId, player, streamUrl]);
 
   return (
     <View style={styles.container}>
       {streamUrl ? (
         <VideoView player={player} style={styles.video} contentFit="contain" nativeControls />
       ) : (
-        <Text style={styles.loading}>Loading stream…</Text>
+        <Text style={styles.loading}>{error ? 'Playback unavailable. Please try again later.' : 'Loading stream…'}</Text>
       )}
     </View>
   );
