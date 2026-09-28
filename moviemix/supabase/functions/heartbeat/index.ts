@@ -32,9 +32,14 @@ serve(async (req) => {
     .select('id').eq('profile_id', user.id).eq(column, id).maybeSingle();
   if (lookupError) return json({ error: 'Progress lookup failed' }, 500);
   const progress = { progress_seconds: Math.floor(positionSeconds), completed, updated_at: new Date().toISOString() };
-  const result = previous
+  let result = previous
     ? await supabase.from('watch_history').update(progress).eq('id', previous.id)
     : await supabase.from('watch_history').insert({ profile_id: user.id, [column]: id, ...progress });
+  // A second device can insert the same title after our lookup. Retry as an update.
+  if (!previous && result.error?.code === '23505') {
+    result = await supabase.from('watch_history').update(progress)
+      .eq('profile_id', user.id).eq(column, id);
+  }
   if (result.error) return json({ error: 'Progress save failed' }, 500);
   return json({ ok: true });
 });
