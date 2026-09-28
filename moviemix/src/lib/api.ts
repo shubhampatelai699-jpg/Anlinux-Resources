@@ -117,11 +117,13 @@ export async function fetchSeriesWithEpisodes(
 
 export async function getSignedPlaybackUrl(
   contentId: string,
+  episodeId?: string,
 ): Promise<{ url: string; expiration: number }> {
-  return api('/playback/signed-url', {
-    method: 'POST',
-    body: JSON.stringify({ contentId }),
+  const { data, error } = await supabase.functions.invoke('signed-playback', {
+    body: { contentId, episodeId },
   });
+  if (error || !data?.url) throw new Error(data?.error ?? error?.message ?? 'Playback unavailable');
+  return data;
 }
 
 export async function addToWatchlist({
